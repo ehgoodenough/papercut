@@ -39,4 +39,8 @@ Monster.prototype.die = function() {
     delete window.game.monsters[this.id]
 }
 
+Monster.prototype.getAttacked = function(source) {
+    // put stuff here skylar
+}
+
 module.exports = Monster
