@@ -19,8 +19,7 @@
             {"tx" : 28, "ty" : 9, "id" : "zombie"},
             {"tx" : 24, "ty" : 12, "id" : "zombie"},
         ],
-    }
-    
+    },
     // Level 2 - Skeledude Intro
     {
         "name" : "Meet the Skeleton",
@@ -35,8 +34,7 @@
             {"tx" : 16, "ty" : 1, "id" : "skeleton"},
             {"tx" : 24, "ty" : 4, "id" : "zombie"},
         ],
-    }
-
+    },
     // Level 3 - Phalanx
     {
         "name" : "Phalanx",
