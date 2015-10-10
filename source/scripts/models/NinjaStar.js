@@ -2,15 +2,17 @@ var ShortID = require("shortid")
 
 var NinjaStar = function(protoninjastar) {
     this.id = ShortID.generate()
-    this.game.ninjastars[this.id] = this
+    window.game.ninjastars[this.id] = this
 
     this.x = protoninjastar.x || 0
     this.y = protoninjastar.y || 0
 
     this.size = 36
 
-    this.speed = 4
     this.rotation = 0
+    this.angle = protoninjastar.angle
+    this.speed = 4
+    this.rotationspeed = 3
 }
 
 NinjaStar.prototype.getStyle = function() {
@@ -25,8 +27,9 @@ NinjaStar.prototype.getStyle = function() {
 }
 
 NinjaStar.prototype.update = function(delta) {
-    this.rotation += this.speed * 3 * delta
-    this.y -= this.speed * delta
+    this.rotation += this.rotationspeed * 3 * delta
+    this.x += Math.cos(this.angle * (Math.PI / 180)) * this.speed * delta
+    this.y += Math.sin(this.angle * (Math.PI / 180)) * this.speed * delta
 }
 
 module.exports = NinjaStar

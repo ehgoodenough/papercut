@@ -1,4 +1,8 @@
+var Mouse = require("../utilities/Mouse")
 var Keyboard = require("../utilities/Keyboard")
+var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
+
+var NinjaStar = require("./NinjaStar")
 
 var Ninja = function() {
     window.game.ninja = this
@@ -42,6 +46,18 @@ Ninja.prototype.update = function(delta) {
     || Keyboard.isDown("<right>")) {
         this.x += this.speed * delta
         this.direction = +1
+    }
+
+    while(Mouse.events.length > 0) {
+        var event = Mouse.events.shift()
+        if(event.type == "click") {
+            var angle = getAngleBetweenPoints(this, event)
+            new NinjaStar({
+                x: this.x,
+                y: this.y,
+                angle: angle
+            })
+        }
     }
 }
 
