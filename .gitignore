@@ -1,0 +1,11 @@
+node_modules
+bower_components
+node_webkit_cache
+
+._*
+*.log
+.DS_Store
+
+build
+
+todo*

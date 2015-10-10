@@ -1,0 +1,14 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+html
+{
+    color: #EEE;
+    background-color: #111;
+}
