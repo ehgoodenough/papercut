@@ -7,6 +7,7 @@ var Monster = function() {
     this.x = Math.floor(Math.random() * WIDTH)
     this.y = Math.floor(Math.random() * HEIGHT)
     this.size = 48
+    this.speed = 1
 }
 
 Monster.prototype.getStyle = function() {
@@ -23,13 +24,13 @@ Monster.prototype.update = function(delta) {
 
     var chase = 0
     if (window.game.ninja.y > this.y)
-        this.y += 1 * delta
+        this.y += this.speed * delta
     else 
-        this.y -= 1 * delta
+        this.y -= this.speed * delta
     if (window.game.ninja.x > this.x)
-        this.x += 1 * delta
+        this.x += this.speed * delta
     else 
-        this.x -= 1 * delta
+        this.x -= this.speed * delta
 }
 
 Monster.prototype.getPosition
