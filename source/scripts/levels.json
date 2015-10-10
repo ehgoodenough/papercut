@@ -2,37 +2,61 @@
 [
     // Level 1 - Zombie Intro
     // Array of monsters in this level.
-    [
-        // Left side, top to bottom:
-        {"tx" : 8, "ty" : 3, "id" : "zombie"},
-        {"tx" : 4, "ty" : 9, "id" : "zombie"},
-        {"tx" : 8, "ty" : 12, "id" : "zombie"},
-        // Right side, top to bottom:
-        {"tx" : 24, "ty" : 3, "id" : "zombie"},
-        {"tx" : 28, "ty" : 9, "id" : "zombie"},
-        {"tx" : 24, "ty" : 12, "id" : "zombie"},
-    ]
+    {
+        "name" : "Zombies!",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "monsters" : [
+            // Left side, top to bottom:
+            {"tx" : 8, "ty" : 3, "id" : "zombie"},
+            {"tx" : 4, "ty" : 9, "id" : "zombie"},
+            {"tx" : 8, "ty" : 12, "id" : "zombie"},
+            // Right side, top to bottom:
+            {"tx" : 24, "ty" : 3, "id" : "zombie"},
+            {"tx" : 28, "ty" : 9, "id" : "zombie"},
+            {"tx" : 24, "ty" : 12, "id" : "zombie"},
+        ],
+    }
     
     // Level 2 - Skeledude Intro
-    [
-        // Top side, left to right
-        {"tx" : 8, "ty" : 4, "id" : "zombie"},
-        {"tx" : 16, "ty" : 1, "id" : "skeleton"},
-        {"tx" : 24, "ty" : 4, "id" : "zombie"},
-    ]
+    {
+        "name" : "Meet the Skeleton",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "monsters" : [
+            // Top side, left to right
+            {"tx" : 8, "ty" : 4, "id" : "zombie"},
+            {"tx" : 16, "ty" : 1, "id" : "skeleton"},
+            {"tx" : 24, "ty" : 4, "id" : "zombie"},
+        ],
+    }
 
     // Level 3 - Phalanx
-    [
-        // Zombie block, left to right and top to bottom
-        {"tx" : 8, "ty" : 3, "id" : "zombie"},
-        {"tx" : 16, "ty" : 3, "id" : "zombie"},
-        {"tx" : 24, "ty" : 3, "id" : "zombie"},
-        {"tx" : 8, "ty" : 5, "id" : "zombie"},
-        {"tx" : 16, "ty" : 5, "id" : "zombie"},
-        {"tx" : 24, "ty" : 5, "id" : "zombie"},
-        // Skeleton backup
-        {"tx" : 8, "ty" : 1, "id" : "skeleton"},
-        {"tx" : 16, "ty" : 1, "id" : "skeleton"},
-        {"tx" : 24, "ty" : 1, "id" : "skeleton"},
-    ]
+    {
+        "name" : "Phalanx",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "monsters" : [
+            // Zombie block, left to right and top to bottom
+            {"tx" : 8, "ty" : 3, "id" : "zombie"},
+            {"tx" : 16, "ty" : 3, "id" : "zombie"},
+            {"tx" : 24, "ty" : 3, "id" : "zombie"},
+            {"tx" : 8, "ty" : 5, "id" : "zombie"},
+            {"tx" : 16, "ty" : 5, "id" : "zombie"},
+            {"tx" : 24, "ty" : 5, "id" : "zombie"},
+            // Skeleton backup
+            {"tx" : 8, "ty" : 1, "id" : "skeleton"},
+            {"tx" : 16, "ty" : 1, "id" : "skeleton"},
+            {"tx" : 24, "ty" : 1, "id" : "skeleton"},
+        ],
+    }
 ]
