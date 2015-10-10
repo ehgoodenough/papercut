@@ -1,15 +1,17 @@
 var ShortID = require("shortid")
+var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
 
-var Monster = function() {
+
+var Monster = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
-
-    this.x = Math.floor(Math.random() * WIDTH)
-    this.y = Math.floor(Math.random() * HEIGHT)
+    console.log(protomonster)
+    this.x = protomonster.x || protomonster.tx * 32 || 0
+    this.y = protomonster.y || protomonster.ty * 32 || 0
     this.size = 48
     this.speed = 1
     this.currentAction = null
-    this.attackRange = 32
+    this.attackRange = 100
 }
 
 Monster.prototype.getStyle = function() {
@@ -23,12 +25,9 @@ Monster.prototype.getStyle = function() {
 }
 
 Monster.prototype.update = function(delta) {
-
     if(delta > .9) {
-        if ((window.game.ninja.y - this.y < this.attackRange &&
-            window.game.ninja.x - this.x < this.attackRange) ||
-            (window.game.ninja - this.x > -this.attackRange &&
-            window.game.ninja - this.y > -this.attackRange)){
+        var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
+        if (distanceToNinja <= this.attackRange){
             this.currentAction = {}  //TODO: Attack!
         }
         else{
@@ -40,8 +39,6 @@ Monster.prototype.update = function(delta) {
             }
         }
     }
-    console.log("x "  + window.game.ninja.x)
-    console.log("y " + window.game.ninja.y)
     if (this.currentAction && this.currentAction.moveTo){
         if (this.currentAction.moveTo.y > this.y)
             this.y += this.speed * delta
@@ -52,8 +49,6 @@ Monster.prototype.update = function(delta) {
         else 
             this.x -= this.speed * delta
     }
-
-    
 }
 
 Monster.prototype.getPosition = function() {
@@ -62,6 +57,10 @@ Monster.prototype.getPosition = function() {
 
 Monster.prototype.die = function() {
     delete window.game.monsters[this.id]
+}
+
+Monster.prototype.getAttacked = function(source) {
+    // put stuff here skylar
 }
 
 module.exports = Monster
