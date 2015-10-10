@@ -1,6 +1,6 @@
 var vkey = require("vkey")
 
-var Input = {
+var Keyboard = {
     isDown: function(key) {
         if(this.data[key] == undefined) {
             this.data[key] = -1
@@ -45,13 +45,13 @@ var Input = {
 }
 
 document.addEventListener("keydown", function(event) {
-    if(Input.isUp(vkey[event.keyCode])) {
-        Input.setDown(vkey[event.keyCode])
+    if(Keyboard.isUp(vkey[event.keyCode])) {
+        Keyboard.setDown(vkey[event.keyCode])
     }
 })
 
 document.addEventListener("keyup", function(event) {
-    Input.setUp(vkey[event.keyCode])
+    Keyboard.setUp(vkey[event.keyCode])
 })
 
-module.exports = Input
+module.exports = Keyboard
