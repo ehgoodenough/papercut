@@ -1,13 +1,14 @@
 var Loop = require("./scripts/utilities/Loop")
 var Mouse = require("./scripts/utilities/Mouse")
 var Keyboard = require("./scripts/utilities/Keyboard")
+var getURLQuery = require("./scripts/utilities/getURLQuery")
 
 var Game = require("./scripts/models/Game")
 var Ninja = require("./scripts/models/Ninja")
 var Monster = require("./scripts/models/Monster")
 var NinjaStar = require("./scripts/models/NinjaStar")
 
-var Levels = require("./scripts/levels")
+var Levels = require("./scripts/data/Levels")
 var Images = require("./scripts/data/Images")
 
 window.WIDTH = 1024
@@ -15,8 +16,11 @@ window.HEIGHT = 576
 
 new Game()
 new Ninja()
-for(var index in Levels[0]) {
-    var monster = Levels[0][index]
+
+var lvl = getURLQuery("level") || 0
+for(var index in Levels[lvl].monsters) {
+    var monster = Levels[lvl].monsters[index]
+    console.log(monster)
     new Monster(monster)
 }
 
