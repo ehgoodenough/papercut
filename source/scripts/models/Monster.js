@@ -15,13 +15,24 @@ Monster.prototype.getStyle = function() {
         height: this.size + "em",
         left: this.x - (this.size / 2) + "em",
         top: this.y - (this.size / 2) + "em",
-        backgroundColor: "#00CC00",
+        backgroundColor: "orange",
     }
 }
 
 Monster.prototype.update = function(delta) {
-    this.x += 3 * delta
+
+    var chase = 0
+    if (window.game.ninja.y > this.y)
+        this.y += 1 * delta
+    else 
+        this.y -= 1 * delta
+    if (window.game.ninja.x > this.x)
+        this.x += 1 * delta
+    else 
+        this.x -= 1 * delta
 }
+
+Monster.prototype.getPosition
 
 Monster.prototype.die = function() {
     delete window.game.monsters[this.id]
