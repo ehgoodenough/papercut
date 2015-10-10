@@ -20,7 +20,6 @@ new Ninja()
 var lvl = getURLQuery("level") || 0
 for(var index in Levels[lvl].monsters) {
     var monster = Levels[lvl].monsters[index]
-    console.log(monster)
     new Monster(monster)
 }
 
