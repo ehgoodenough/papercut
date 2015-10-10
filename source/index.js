@@ -1,4 +1,5 @@
 var Loop = require("./scripts/utilities/Loop")
+var Mouse = require("./scripts/utilities/Mouse")
 var Keyboard = require("./scripts/utilities/Keyboard")
 
 var Game = require("./scripts/models/Game")
@@ -15,7 +16,7 @@ new Monster()
 new Monster()
 new Monster()
 
-console.log(window.game)
+window.view = require("./scripts/views/GameView")
 
 Loop(function(delta) {
     game.time += delta
@@ -37,5 +38,3 @@ Loop(function(delta) {
         window.view.forceUpdate()
     }
 })
-
-window.view = require("./scripts/views/GameView")
