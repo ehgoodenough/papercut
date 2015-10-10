@@ -10,7 +10,7 @@ var NinjaStar = function(protoninjastar) {
     this.y = protoninjastar.y || 0
 
     this.size = 36
-    
+
     this.rotation = 0
     this.angle = protoninjastar.angle
     this.speed = 4

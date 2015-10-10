@@ -7,14 +7,18 @@ var Ninja = require("./scripts/models/Ninja")
 var Monster = require("./scripts/models/Monster")
 var NinjaStar = require("./scripts/models/NinjaStar")
 
+var Levels = require("./scripts/levels")
+var Images = require("./scripts/data/Images")
+
 window.WIDTH = 1024
 window.HEIGHT = 576
 
 new Game()
 new Ninja()
-new Monster()
-new Monster()
-new Monster()
+for(var index in Levels[0]) {
+    var monster = Levels[0][index]
+    new Monster(monster)
+}
 
 window.view = require("./scripts/views/GameView")
 
