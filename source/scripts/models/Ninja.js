@@ -1,6 +1,8 @@
 var Keyboard = require("../utilities/Keyboard")
 
 var Ninja = function() {
+    window.game.ninja = this
+
     this.x = WIDTH / 2
     this.y = HEIGHT / 2
 

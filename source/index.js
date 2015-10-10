@@ -6,23 +6,16 @@ var Ninja = require("./scripts/models/Ninja")
 var Monster = require("./scripts/models/Monster")
 var NinjaStar = require("./scripts/models/NinjaStar")
 
-var GameView = require("./scripts/views/GameView")
-
 window.WIDTH = 1024
 window.HEIGHT = 576
 
-window.game = new Game()
-game.ninja = new Ninja()
-for(var i = 0; i < 3; i++) {
-    var monster = new Monster()
-    game.monsters[monster.id] = monster
-}
-var ninjastar = new NinjaStar({
-    x: game.ninja.x, y: game.ninja.y
-})
-game.ninjastars[ninjastar.id] = ninjastar
+new Game()
+new Ninja()
+new Monster()
+new Monster()
+new Monster()
 
-console.log(game)
+console.log(window.game)
 
 Loop(function(delta) {
     game.time += delta
@@ -34,11 +27,15 @@ Loop(function(delta) {
     game.ninja.update(fluxdelta)
     for(var id in game.monsters) {
         var monster = game.monsters[id]
-        monster.update(fluxdelta)
+        monster.update(delta)
     } for(var id in game.ninjastars) {
         var monster = game.ninjastars[id]
         monster.update(fluxdelta)
     }
 
-    GameView.forceUpdate()
+    if(window.view != undefined) {
+        window.view.forceUpdate()
+    }
 })
+
+window.view = require("./scripts/views/GameView")

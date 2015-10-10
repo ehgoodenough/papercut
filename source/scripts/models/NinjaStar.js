@@ -2,6 +2,7 @@ var ShortID = require("shortid")
 
 var NinjaStar = function(protoninjastar) {
     this.id = ShortID.generate()
+    this.game.ninjastars[this.id] = this
 
     this.x = protoninjastar.x || 0
     this.y = protoninjastar.y || 0

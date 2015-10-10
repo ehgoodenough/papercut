@@ -2,6 +2,7 @@ var ShortID = require("shortid")
 
 var Monster = function() {
     this.id = ShortID.generate()
+    window.game.monsters[this.id] = this
 
     this.x = Math.floor(Math.random() * WIDTH)
     this.y = Math.floor(Math.random() * HEIGHT)
@@ -20,6 +21,10 @@ Monster.prototype.getStyle = function() {
 
 Monster.prototype.update = function(delta) {
     this.x += 3 * delta
+}
+
+Monster.prototype.die = function() {
+    delete window.game.monsters[this.id]
 }
 
 module.exports = Monster

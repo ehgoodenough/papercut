@@ -1,4 +1,6 @@
 var Game = function() {
+    window.game = this
+    
     this.time = 0
 
     this.ninja = {}
