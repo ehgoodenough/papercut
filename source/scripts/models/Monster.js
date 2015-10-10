@@ -1,11 +1,11 @@
 var ShortID = require("shortid")
 
-var Monster = function() {
+var Monster = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
-
-    this.x = Math.floor(Math.random() * WIDTH)
-    this.y = Math.floor(Math.random() * HEIGHT)
+    console.log(protomonster)
+    this.x = protomonster.x || protomonster.tx * 32 || 0
+    this.y = protomonster.y || protomonster.ty * 32 || 0
     this.size = 48
     this.speed = 1
 }
@@ -25,11 +25,11 @@ Monster.prototype.update = function(delta) {
     var chase = 0
     if (window.game.ninja.y > this.y)
         this.y += this.speed * delta
-    else 
+    else
         this.y -= this.speed * delta
     if (window.game.ninja.x > this.x)
         this.x += this.speed * delta
-    else 
+    else
         this.x -= this.speed * delta
 }
 

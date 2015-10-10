@@ -4,6 +4,8 @@ var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 
 var NinjaStar = require("./NinjaStar")
 
+var Images = require("../data/Images.js")
+
 var Ninja = function() {
     window.game.ninja = this
 
@@ -15,7 +17,7 @@ var Ninja = function() {
     this.vmin = 0.001
     this.vmax = 0.075
 
-    this.size = 48
+    this.size = 128
 
     this.speed = 3
     this.direction = +1
@@ -27,7 +29,11 @@ Ninja.prototype.getStyle = function() {
         height: this.size + "em",
         left: (this.x - (this.size / 2)) + "em",
         top: (this.y - (this.size / 2)) + "em",
-        backgroundColor: "#CC0000",
+        backgroundSize: "contain",
+        backgroundImage: "url('" + Images.ninja.move.west + "')",
+        transform: "scaleX(" + this.direction + ")",
+        transitionProperty: "transform",
+        transitionDuration: "0.25s"
     }
 }
 
@@ -41,11 +47,11 @@ Ninja.prototype.update = function(delta) {
     } if(Keyboard.isDown("A")
     || Keyboard.isDown("<left>")) {
         this.x -= this.speed * delta
-        this.direction = -1
+        this.direction = +1
     } if(Keyboard.isDown("D")
     || Keyboard.isDown("<right>")) {
         this.x += this.speed * delta
-        this.direction = +1
+        this.direction = -1
     }
 
     while(Mouse.events.length > 0) {
