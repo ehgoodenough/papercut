@@ -11,15 +11,15 @@ var gulp_connect = require("gulp-connect")
 var gulp_minify_css = require("gulp-minify-css")
 var gulp_minify_html = require("gulp-minify-html")
 var gulp_prefixify_css = require("gulp-autoprefixer")
+var gulp_inline_css_uri = require("gulp-css-base64")
 var gulp_transform_json = require("gulp-json-transform")
 var gulp_nwify = require("gulp-nw-builder")
-var gulp_debug = require("gulp-debug")
 
-var fs = require("fs")
 var opn = require("opn")
 var chalk = require("chalk")
 var yargs = require("yargs")
 var beepbeep = require("beepbeep")
+var node_watch = require("node-watch")
 var indent_string = require("indent-string")
 
 var vinyl_buffer = require("vinyl-buffer")
@@ -55,6 +55,7 @@ function build() {
         gulp.src("./source/index.css")
             .pipe(gulp_sass())
             .pipe(gulp_prefixify_css())
+            .pipe(gulp_inline_css_uri())
             .pipe(gulp_if(yargs.argv.minify, gulp_minify_css()))
             .pipe(gulp.dest("./build/web"))
             .pipe(gulp_connect.reload()),
@@ -87,7 +88,7 @@ function build() {
 build()
 
 if(yargs.argv._.indexOf("server") != -1) {
-    fs.watch("./source", build)
+    node_watch("./source", build)
     gulp_connect.server({
         livereload: true,
         root: "./build/web",

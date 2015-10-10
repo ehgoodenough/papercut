@@ -7,8 +7,19 @@
     box-sizing: border-box;
 }
 
+@import "./styles/Fonts.scss";
+@import "./styles/views/FrameView.scss";
+@import "./styles/views/EntityView.scss";
+
 html
 {
     color: #EEE;
+    font-family: goldfish;
     background-color: #111;
+}
+
+#frame-view
+{
+    color: #111;
+	background-color: #EEE;
 }

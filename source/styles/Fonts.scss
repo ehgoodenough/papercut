@@ -1,0 +1,11 @@
+@mixin font-face($font) {
+    @font-face {
+        font-style: normal;
+        font-weight: normal;
+        font-stretch: normal;
+        font-family: "#{$font}";
+        src: url("fonts/#{$font}.woff");
+    }
+}
+
+@include font-face(goldfish);
