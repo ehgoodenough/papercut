@@ -1,14 +1,14 @@
-var DataURI = require("datauri")
+var datauri = require("datauri")
 
 var Images = {
     "ninja": {
         "move": {
-            "north": ("./source/images/ninja-north.png"),
-
-            "south": ("./source/images/ninja-south.png"),
-            "west": ("./source/images/ninja-west.png"),
+            "north": datauri("./source/images/ninja-north.png"),
+            "south": datauri("./source/images/ninja-south.png"),
+            "west": datauri("./source/images/ninja-west.png"),
         }
-    }
+    },
+    "ninjastar": datauri("./source/images/ninjastar.png"),
 }
 
 module.exports = Images
