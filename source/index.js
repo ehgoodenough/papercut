@@ -27,7 +27,7 @@ Loop(function(delta) {
     game.ninja.update(fluxdelta)
     for(var id in game.monsters) {
         var monster = game.monsters[id]
-        monster.update(delta)
+        monster.update(fluxdelta)
     } for(var id in game.ninjastars) {
         var monster = game.ninjastars[id]
         monster.update(fluxdelta)

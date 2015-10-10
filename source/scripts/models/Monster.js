@@ -7,6 +7,7 @@ var Monster = function() {
     this.x = Math.floor(Math.random() * WIDTH)
     this.y = Math.floor(Math.random() * HEIGHT)
     this.size = 48
+    this.speed = 1
 }
 
 Monster.prototype.getStyle = function() {
@@ -15,13 +16,24 @@ Monster.prototype.getStyle = function() {
         height: this.size + "em",
         left: this.x - (this.size / 2) + "em",
         top: this.y - (this.size / 2) + "em",
-        backgroundColor: "#00CC00",
+        backgroundColor: "orange",
     }
 }
 
 Monster.prototype.update = function(delta) {
-    this.x += 3 * delta
+
+    var chase = 0
+    if (window.game.ninja.y > this.y)
+        this.y += this.speed * delta
+    else 
+        this.y -= this.speed * delta
+    if (window.game.ninja.x > this.x)
+        this.x += this.speed * delta
+    else 
+        this.x -= this.speed * delta
 }
+
+Monster.prototype.getPosition
 
 Monster.prototype.die = function() {
     delete window.game.monsters[this.id]
