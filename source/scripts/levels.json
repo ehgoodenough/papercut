@@ -1,15 +1,15 @@
 // Array of levels.
 [
-	// Level 1
-	// Array of monsters in this level.
-	[
-		// Left side, top to bottom:
-		{"tx" : 8, "ty" : 3, "id" : "zombie"},
-		{"tx" : 4, "ty" : 9, "id" : "zombie"},
-		{"tx" : 8, "ty" : 12, "id" : "zombie"},
-		// Right side, top to bottom:
-		{"tx" : 24, "ty" : 3, "id" : "zombie"},
-		{"tx" : 28, "ty" : 9, "id" : "zombie"},
-		{"tx" : 24, "ty" : 12, "id" : "zombie"},
-	]
+    // Level 1
+    // Array of monsters in this level.
+    [
+        // Left side, top to bottom:
+        {"tx" : 8, "ty" : 3, "id" : "zombie"},
+        {"tx" : 4, "ty" : 9, "id" : "zombie"},
+        {"tx" : 8, "ty" : 12, "id" : "zombie"},
+        // Right side, top to bottom:
+        {"tx" : 24, "ty" : 3, "id" : "zombie"},
+        {"tx" : 28, "ty" : 9, "id" : "zombie"},
+        {"tx" : 24, "ty" : 12, "id" : "zombie"},
+    ]
 ]
