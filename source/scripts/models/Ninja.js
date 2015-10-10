@@ -31,6 +31,7 @@ Ninja.prototype.getStyle = function() {
         top: (this.y - (this.size / 2)) + "em",
         backgroundSize: "contain",
         backgroundImage: "url('" + Images.ninja.move.west + "')",
+        backgroundColor: "red",
         transform: "scaleX(" + this.direction + ")",
         transitionProperty: "transform",
         transitionDuration: "0.25s"

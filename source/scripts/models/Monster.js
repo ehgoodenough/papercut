@@ -1,4 +1,6 @@
 var ShortID = require("shortid")
+var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
+
 
 var Monster = function(protomonster) {
     this.id = ShortID.generate()
@@ -8,6 +10,8 @@ var Monster = function(protomonster) {
     this.y = protomonster.y || protomonster.ty * 32 || 0
     this.size = 48
     this.speed = 1
+    this.currentAction = null
+    this.attackRange = 100
 }
 
 Monster.prototype.getStyle = function() {
@@ -21,19 +25,35 @@ Monster.prototype.getStyle = function() {
 }
 
 Monster.prototype.update = function(delta) {
-
-    var chase = 0
-    if (window.game.ninja.y > this.y)
-        this.y += this.speed * delta
-    else
-        this.y -= this.speed * delta
-    if (window.game.ninja.x > this.x)
-        this.x += this.speed * delta
-    else
-        this.x -= this.speed * delta
+    if(delta > .9) {
+        var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
+        if (distanceToNinja <= this.attackRange){
+            this.currentAction = {}  //TODO: Attack!
+        }
+        else{
+            this.currentAction = { 
+                moveTo: {
+                    x: window.game.ninja.x, 
+                    y: window.game.ninja.y
+                }
+            }
+        }
+    }
+    if (this.currentAction && this.currentAction.moveTo){
+        if (this.currentAction.moveTo.y > this.y)
+            this.y += this.speed * delta
+        else 
+            this.y -= this.speed * delta
+        if (this.currentAction.moveTo.x > this.x)
+            this.x += this.speed * delta
+        else 
+            this.x -= this.speed * delta
+    }
 }
 
-Monster.prototype.getPosition
+Monster.prototype.getPosition = function() {
+    this.x
+}
 
 Monster.prototype.die = function() {
     delete window.game.monsters[this.id]
