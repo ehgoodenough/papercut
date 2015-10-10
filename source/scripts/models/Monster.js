@@ -5,7 +5,7 @@ var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
 var Monster = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
-    console.log(protomonster)
+    
     this.x = protomonster.x || protomonster.tx * 32 || 0
     this.y = protomonster.y || protomonster.ty * 32 || 0
     this.size = 48
