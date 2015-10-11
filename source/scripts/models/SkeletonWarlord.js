@@ -74,6 +74,10 @@ SkeletonWarlord.prototype.update = function(delta) {
             this.distance = Math.floor(distance / 50)
         }
 
+        if(hasCircularCollision(this, window.game.ninja)){
+                this.attackPlayer()
+        }
+
         if (this.currentAction && this.currentAction.moveTo){
             if (this.currentAction.moveTo.y > this.y)
                 this.y += this.speed * delta
