@@ -4,6 +4,7 @@ var Projectile = require("./Projectile")
 
 var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
+var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 var Images = require("../data/Images")
 
@@ -136,6 +137,9 @@ SkeletonArcher.prototype.update = function(delta) {
                 } if(this.y > window.HEIGHT) {
                     this.y = window.HEIGHT
                 }
+            }
+            if(hasCircularCollision(this, ninja)){
+                ninja.getAttacked(this)
             }
         }
     } else {
