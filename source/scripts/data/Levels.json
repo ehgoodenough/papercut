@@ -86,9 +86,9 @@
         "monsters" : [
             // Block of basic enemies to push player away
             {"tx" : 10, "ty" : 6, "id" : "grunt"},
-            {"tx" : 12, "ty" : 5, "id" : "grunt"},
-            {"tx" : 16, "ty" : 4, "id" : "Warlord"},
-            {"tx" : 20, "ty" : 5, "id" : "grunt"},
+            {"tx" : 12, "ty" : 4, "id" : "grunt"},
+            {"tx" : 16, "ty" : 2, "id" : "Warlord"},
+            {"tx" : 20, "ty" : 4, "id" : "grunt"},
             {"tx" : 22, "ty" : 6, "id" : "grunt"},
 
             // Archer flankers to teach the player to go kill them
@@ -124,12 +124,12 @@
             {"tx" : 19, "ty" : 2, "id" : "archer"},
 
             // Flank zombies to eat time
-            {"tx" : 2, "ty" : 1, "id" : "grunt"},
-            {"tx" : 3, "ty" : 2, "id" : "grunt"},
-            {"tx" : 4, "ty" : 1, "id" : "grunt"},
-            {"tx" : 30, "ty" : 1, "id" : "grunt"},
-            {"tx" : 29, "ty" : 2, "id" : "grunt"},
-            {"tx" : 28, "ty" : 1, "id" : "grunt"},
+            {"tx" : 6, "ty" : 3, "id" : "grunt"},
+            {"tx" : 7, "ty" : 4, "id" : "grunt"},
+            {"tx" : 8, "ty" : 3, "id" : "grunt"},
+            {"tx" : 26, "ty" : 3, "id" : "grunt"},
+            {"tx" : 25, "ty" : 4, "id" : "grunt"},
+            {"tx" : 24, "ty" : 3, "id" : "grunt"},
         ],
     },
 
