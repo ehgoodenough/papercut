@@ -83,9 +83,6 @@ var GameView = React.createClass({
                 )
             } else if(admin.show == "highscores") {
                 var scores = [
-                    {name: "asdf", score: "123"},
-                    {name: "asdf", score: "123"},
-                    {name: "asdf", score: "123"},
                 ]
                 return (
                     <div style={{padding: "32em"}}>
