@@ -33,7 +33,7 @@ module.exports = [
             {"tx" : 26, "ty" : 15, "id" : "grunt"},
         ],
     },
-
+    
     // Level 2 - Skeledude Intro
     // Teach the player to flank the skeleton shield guys
     {
@@ -120,7 +120,7 @@ module.exports = [
     // Level 5 - Screened Archers
     // Now make the player work for the archer solution.
     {
-        "name" : "Combined Arms",
+        "name" : "Teamwork!",
         "music" : "chaos",
         "background" : 1,
         "ninja" : {
@@ -157,7 +157,7 @@ module.exports = [
     // Level 6 - Archers screening shield guy flanks
     // Dealing with the same enemy combination as lvl 5, but with different positioning.
     {
-        "name" : "Pincer",
+        "name" : "Covering Fire",
         "music" : "chaos",
         "background" : 1,
         "ninja" : {
@@ -174,10 +174,10 @@ module.exports = [
             {"tx" : 17, "ty" : 14, "id" : "warlord"},
 
             // Archers zoning shieldwall flanks
-            {"tx" : 8, "ty" : 2, "id" : "archer"},
-            {"tx" : 24, "ty" : 2, "id" : "archer"},
-            {"tx" : 5, "ty" : 1, "id" : "archer"},
-            {"tx" : 27, "ty" : 1, "id" : "archer"},
+            {"tx" : 8, "ty" : 16, "id" : "archer"},
+            {"tx" : 24, "ty" : 16, "id" : "archer"},
+            {"tx" : 5, "ty" : 17, "id" : "archer"},
+            {"tx" : 27, "ty" : 17, "id" : "archer"},
 
             // Flank zombies to occuply player until projectiles are in flight
             {"tx" : 5, "ty" : 8, "id" : "grunt"},
@@ -251,12 +251,12 @@ module.exports = [
             {"tx" : 6, "ty" : 2, "id" : "archer"},
             {"tx" : 1, "ty" : 9, "id" : "archer"},
             {"tx" : 6, "ty" : 16, "id" : "archer"},
-
+            
             {"tx" : 26, "ty" : 2, "id" : "archer"},
             {"tx" : 31, "ty" : 9, "id" : "archer"},
             {"tx" : 26, "ty" : 16, "id" : "archer"},
 
-            // Grunt wedges to add pressure and screen some archers from
+            // Grunt wedges to add pressure and screen some archers from 
             // instant shuriken murder.
             {"tx" : 3, "ty" : 8, "id" : "grunt"},
             {"tx" : 4, "ty" : 9, "id" : "grunt"},
@@ -269,12 +269,12 @@ module.exports = [
     },
 
     // Level 9 - All Factors
-    // The big surround, all factors in play
+    // The big surround, all factors in play 
     // Dealing with a non-zombie surround sitation; search for weak points.
     {
         "name" : "Grand Melee",
-        "music" : "final",
-        "background" : 2,
+        "music" : "chaos",
+        "background" : 1,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -316,7 +316,7 @@ module.exports = [
     // Previous level, but with more comprehensive surrounds.
     // Ability manipulation recommended to beat
     {
-        "name" : "Last Stand",
+        "name" : "Final Showdown",
         "music" : "final",
         "background" : 2,
         "ninja" : {
@@ -332,7 +332,7 @@ module.exports = [
             {"tx" : 12, "ty" : 2, "id" : "archer"},
             {"tx" : 1, "ty" : 9, "id" : "archer"},
             {"tx" : 6, "ty" : 16, "id" : "archer"},
-
+            
             {"tx" : 26, "ty" : 2, "id" : "archer"},
             {"tx" : 31, "ty" : 9, "id" : "archer"},
             {"tx" : 20, "ty" : 16, "id" : "archer"},
@@ -341,7 +341,7 @@ module.exports = [
             {"tx" : 9, "ty" : 4, "id" : "warlord"},
 
             {"tx" : 9, "ty" : 14, "id" : "warlord"},
-
+            
             {"tx" : 23, "ty" : 4, "id" : "warlord"},
 
             {"tx" : 23, "ty" : 14, "id" : "warlord"},
