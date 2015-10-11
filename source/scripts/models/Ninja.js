@@ -28,7 +28,7 @@ var Ninja = function() {
     }
     this.damageCooldown = 0
 
-    this.health = 2.5
+    this.health = 3
 
     this.delta = 1
     this.isDead = false
@@ -36,8 +36,10 @@ var Ninja = function() {
 
 Ninja.prototype.getStyle = function() {
     var image = Images.ninja.moving.west
-    if(this.state.attacking > 0) {
-        image = Images.ninja.attacking
+    if(this.isDead == true) {
+        image = Images.ninja.dead
+    } else if(this.state.attacking > 0) {
+        image = Images.ninja.throwing
     }
     var opacity = 1
     if(this.damageCooldown == true) {
@@ -80,6 +82,15 @@ Ninja.prototype.update = function(fluxdelta, delta) {
         || Keyboard.isDown("<right>")) {
             this.x += this.speed * fluxdelta
             this.direction = -1
+        }
+        if(this.x < 0) {
+            this.x = 0
+        } if(this.y < 0) {
+            this.y = 0
+        } if(this.x > window.WIDTH) {
+            this.x = window.WIDTH
+        } if(this.y > window.HEIGHT) {
+            this.y = window.HEIGHT
         }
         while(Mouse.events.length > 0) {
             var event = Mouse.events.shift()

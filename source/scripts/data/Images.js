@@ -17,8 +17,9 @@ var Images = {
             "south": DataURI("./source/images/ninja-moving-south.png"),
             "west": DataURI("./source/images/ninja-moving-west.png"),
         },
-        "throwing": DataURI("./source/images/ninja-attacking.png"),
+        "throwing": DataURI("./source/images/ninja-throwing.png"),
         "slashing": DataURI("./source/images/ninja-slashing.png"),
+        "dead": DataURI("./source/images/ninja-dead.png")
     },
     "skeleton": {
         "warlord": {
