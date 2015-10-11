@@ -165,7 +165,7 @@
             {"tx" : 24, "ty" : 15, "id" : "grunt"},
 
             // Asymmetrical heavy flankers
-            {"tx" : 5, "ty" : 4, "id" : "warlord"},
+            {"tx" : 5, "ty" : 16, "id" : "warlord"},
             {"tx" : 17, "ty" : 2, "id" : "warlord"},
             {"tx" : 30, "ty" : 8, "id" : "warlord"},
         ]
