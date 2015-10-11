@@ -58,16 +58,16 @@
         },
         "monsters" : [
             // Zombie block, left to right and top to bottom
-            {"tx" : 8, "ty" : 3, "id" : "grunt"},
+            {"tx" : 12, "ty" : 3, "id" : "grunt"},
             {"tx" : 16, "ty" : 3, "id" : "grunt"},
-            {"tx" : 24, "ty" : 3, "id" : "grunt"},
+            {"tx" : 20, "ty" : 3, "id" : "grunt"},
             {"tx" : 8, "ty" : 5, "id" : "grunt"},
             {"tx" : 16, "ty" : 5, "id" : "grunt"},
             {"tx" : 24, "ty" : 5, "id" : "grunt"},
             // Skeleton backup
-            {"tx" : 8, "ty" : 1, "id" : "warlord"},
+            {"tx" : 4, "ty" : 1, "id" : "warlord"},
             {"tx" : 16, "ty" : 1, "id" : "warlord"},
-            {"tx" : 24, "ty" : 1, "id" : "warlord"},
+            {"tx" : 26, "ty" : 1, "id" : "warlord"},
         ],
     },
 
