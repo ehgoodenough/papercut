@@ -1,5 +1,6 @@
 var ShortID = require("shortid")
 var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
+var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 
 var Monster = function(protomonster) {
@@ -28,7 +29,7 @@ Monster.prototype.update = function(delta) {
     if(delta > .9) {
         var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
         if (distanceToNinja <= this.attackRange){
-            this.currentAction = {}  //TODO: Attack!
+            this.currentAction = {attack: "melee"}  //TODO: Attack!
         }
         else{
             this.currentAction = { 
@@ -38,6 +39,9 @@ Monster.prototype.update = function(delta) {
                 }
             }
         }
+    }
+    if (this.currentAction && this.currentAction.attack) {
+        if(hasCircularCollision(this, window.game.ninja))
     }
     if (this.currentAction && this.currentAction.moveTo){
         if (this.currentAction.moveTo.y > this.y)
@@ -51,8 +55,9 @@ Monster.prototype.update = function(delta) {
     }
 }
 
-Monster.prototype.getPosition = function() {
-    this.x
+Monster.prototype.attackPlayer = function () {
+    window.game.ninja.getAttacked()
+    console.log("potato")
 }
 
 Monster.prototype.die = function() {
@@ -60,7 +65,7 @@ Monster.prototype.die = function() {
 }
 
 Monster.prototype.getAttacked = function(source) {
-    // put stuff here skylar
+    this.die()
 }
 
 module.exports = Monster
