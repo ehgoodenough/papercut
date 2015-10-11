@@ -85,4 +85,8 @@ Ninja.prototype.update = function(delta) {
     }
 }
 
+Ninja.prototype.getAttacked = function(){
+    //TODO 
+}
+
 module.exports = Ninja

@@ -5,7 +5,8 @@ var getURLQuery = require("./scripts/utilities/getURLQuery")
 
 var Game = require("./scripts/models/Game")
 var Ninja = require("./scripts/models/Ninja")
-var Monster = require("./scripts/models/Monster")
+var SkeletonGrunt = require("./scripts/models/SkeletonGrunt")
+var SkeletonWarlord = require("./scripts/models/SkeletonWarlord")
 var NinjaStar = require("./scripts/models/NinjaStar")
 
 var Levels = require("./scripts/data/Levels")
@@ -24,7 +25,13 @@ new Ninja()
 var lvl = getURLQuery("level") || 0
 for(var index in Levels[lvl].monsters) {
     var monster = Levels[lvl].monsters[index]
-    new Monster(monster)
+    if (monster.id === "grunt"){
+        new SkeletonGrunt(monster)
+    }
+    else if (monster.id === "warlord"){
+        new SkeletonWarlord(monster)
+    }
+    
 }
 
 window.view = require("./scripts/views/GameView")

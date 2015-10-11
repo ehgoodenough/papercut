@@ -1,8 +1,9 @@
 var ShortID = require("shortid")
 var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
+var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 
-var Monster = function(protomonster) {
+var SkeletonWarlord = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
     
@@ -14,7 +15,7 @@ var Monster = function(protomonster) {
     this.attackRange = 100
 }
 
-Monster.prototype.getStyle = function() {
+SkeletonWarlord.prototype.getStyle = function() {
     return {
         width: this.size + "em",
         height: this.size + "em",
@@ -24,7 +25,7 @@ Monster.prototype.getStyle = function() {
     }
 }
 
-Monster.prototype.update = function(delta) {
+SkeletonWarlord.prototype.update = function(delta) {
     if(delta > .9) {
         var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
         if (distanceToNinja <= this.attackRange){
@@ -51,16 +52,16 @@ Monster.prototype.update = function(delta) {
     }
 }
 
-Monster.prototype.getPosition = function() {
-    this.x
+SkeletonWarlord.prototype.attackPlayer = function () {
+    window.game.ninja.getAttacked()
 }
 
-Monster.prototype.die = function() {
-    delete window.game.monsters[this.id]
+SkeletonWarlord.prototype.die = function() {
+    delete window.game.Monsters[this.id]
 }
 
-Monster.prototype.getAttacked = function(source) {
+SkeletonWarlord.prototype.getAttacked = function(source) {
     // put stuff here skylar
 }
 
-module.exports = Monster
+module.exports = SkeletonWarlord
