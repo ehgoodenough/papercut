@@ -24,6 +24,8 @@ var Ninja = function() {
     this.state = {
         attacking: 0
     }
+
+    this.delta = 1
 }
 
 Ninja.prototype.getStyle = function() {
@@ -48,6 +50,8 @@ Ninja.prototype.update = function(delta) {
     if(this.state.attacking > 0) {
         this.state.attacking -= delta
     }
+
+    this.delta = delta
 
     if(Keyboard.isDown("W")
     || Keyboard.isDown("<up>")) {
