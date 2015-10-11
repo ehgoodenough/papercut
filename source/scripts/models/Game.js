@@ -58,6 +58,7 @@ Game.prototype.checkWinCondition = function() {
 Game.prototype.checkLoseCondition = function() {
     if(window.game.ninja.isDead == true) {
         window.setTimeout(function() {
+            admin.show = "losescreen"
             new Game(this.level_id)
         }.bind(this), 5000)
     }

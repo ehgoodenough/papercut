@@ -10,10 +10,11 @@ var Images = {
         "flux": DataURI("./source/images/gui-flux.png"),
         "yin": DataURI("./source/images/gui-yin.png"),
         "yinyang": DataURI("./source/images/gui-yinyang.png"),
-        "play-button": DataURI("./source/images/gui-play-button.png"),
-        "quit-button": DataURI("./source/images/gui-quit-button.png"),
-        "title-screen": DataURI("./source/images/gui-title-screen.png"),
-        "gameover-screen": DataURI("./source/images/gui-gameover-screen.png"),
+        "playbutton": DataURI("./source/images/gui-play-button.png"),
+        "quitbutton": DataURI("./source/images/gui-quit-button.png"),
+        "titlescreen": DataURI("./source/images/gui-titlescreen.png"),
+        "losescreen": DataURI("./source/images/gui-losescreen.png"),
+        "winscreen": DataURI("./source/images/gui-winscreen.png"),
     },
     "ninja": {
         "moving": {
