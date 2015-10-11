@@ -61,7 +61,7 @@ Projectile.prototype.update = function(delta) {
             }
         }
     } else if(this.target == "ninjas") {
-        var ninja = window.game.ninjas
+        var ninja = window.game.ninja
         if(ninja.isDead == false) {
             if(hasCircularCollision(this, ninja)) {
                 ninja.getAttacked(this)

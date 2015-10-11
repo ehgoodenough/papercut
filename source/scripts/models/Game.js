@@ -1,7 +1,8 @@
 var Ninja = require("./Ninja")
-var SkeletonGrunt = require("./SkeletonGrunt")
-var SkeletonWarlord = require("./SkeletonWarlord")
 var Projectile = require("./Projectile")
+var SkeletonGrunt = require("./SkeletonGrunt")
+var SkeletonArcher = require("./SkeletonArcher")
+var SkeletonWarlord = require("./SkeletonWarlord")
 
 var Levels = require("../data/Levels")
 
@@ -19,11 +20,12 @@ var Game = function(lvl) {
     new Ninja()
     for(var index in Levels[lvl].monsters) {
         var monster = Levels[lvl].monsters[index]
-        if (monster.id === "grunt"){
+        if(monster.id === "grunt") {
             new SkeletonGrunt(monster)
-        }
-        else if (monster.id === "warlord"){
+        } else if(monster.id === "warlord") {
             new SkeletonWarlord(monster)
+        } else if(monster.id === "archer") {
+            new SkeletonArcher(monster)
         }
 
     }
