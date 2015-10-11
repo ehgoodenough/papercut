@@ -25,6 +25,8 @@ var Ninja = function() {
         attacking: 0
     }
 
+    this.health = 2.5
+
     this.delta = 1
 }
 

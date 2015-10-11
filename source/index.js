@@ -13,7 +13,7 @@ var Images = require("./scripts/data/Images")
 var Music = require("./scripts/data/Music")
 
 Music.one.loop = true
-Music.one.volume = 0.1
+Music.one.volume = 0
 Music.one.play()
 
 window.WIDTH = 1024
