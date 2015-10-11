@@ -9,6 +9,7 @@ var SkeletonGrunt = function(protomonster) {
     
     this.x = protomonster.x || protomonster.tx * 32 || 0
     this.y = protomonster.y || protomonster.ty * 32 || 0
+    this.alive = true
     this.size = 48
     this.speed = 1
     this.currentAction = null
@@ -25,32 +26,34 @@ SkeletonGrunt.prototype.getStyle = function() {
 }
 
 SkeletonGrunt.prototype.update = function(delta) {
-    if(delta > .9) {
-        var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
-        this.currentAction = {
-            moveTo: {
-                x: window.game.ninja.x, 
-                y: window.game.ninja.y
+    if(this.alive) {
+        if(delta > .9) {
+            var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
+            this.currentAction = {
+                moveTo: {
+                    x: window.game.ninja.x, 
+                    y: window.game.ninja.y
+                }
             }
         }
-    }
 
-    if(hasCircularCollision(this, window.game.ninja)){
-        this.attackPlayer()
-    }
-    
-    if (this.currentAction && this.currentAction.moveTo){
-        if (this.currentAction.moveTo.y > this.y){
-            this.y += this.speed * delta
+        if(hasCircularCollision(this, window.game.ninja)){
+            this.attackPlayer()
         }
-        else {
-            this.y -= this.speed * delta
-        }
-        if (this.currentAction.moveTo.x > this.x){
-            this.x += this.speed * delta
-        }
-        else {
-            this.x -= this.speed * delta
+
+        if (this.currentAction && this.currentAction.moveTo){
+            if (this.currentAction.moveTo.y > this.y){
+                this.y += this.speed * delta
+            }
+            else {
+                this.y -= this.speed * delta
+            }
+            if (this.currentAction.moveTo.x > this.x){
+                this.x += this.speed * delta
+            }
+            else {
+                this.x -= this.speed * delta
+            }
         }
     }
 }
@@ -60,7 +63,7 @@ SkeletonGrunt.prototype.attackPlayer = function () {
 }
 
 SkeletonGrunt.prototype.die = function() {
-    delete window.game.monsters[this.id]
+    this.alive = false
 }
 
 SkeletonGrunt.prototype.getAttacked = function(source) {
