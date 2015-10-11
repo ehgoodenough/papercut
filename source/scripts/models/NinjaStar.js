@@ -1,5 +1,6 @@
 var ShortID = require("shortid")
 
+var Images = require("../data/Images")
 var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 var NinjaStar = function(protoninjastar) {
@@ -9,8 +10,9 @@ var NinjaStar = function(protoninjastar) {
     this.x = protoninjastar.x || 0
     this.y = protoninjastar.y || 0
 
-    this.size = 36
-    
+    this.size = 36 * 0.25
+    this.maxsize = 36
+
     this.rotation = 0
     this.angle = protoninjastar.angle
     this.speed = 4
@@ -21,14 +23,22 @@ NinjaStar.prototype.getStyle = function() {
     return {
         width: this.size + "em",
         height: this.size + "em",
-        backgroundColor: "#CC00CC",
         top: (this.y - (this.size / 2)) + "em",
         left: (this.x - (this.size / 2)) + "em",
         transform: "rotate(" + this.rotation + "deg)",
+        backgroundImage: "url(" + Images.ninjastar + ")",
+        backgroundSize: "contain",
     }
 }
 
 NinjaStar.prototype.update = function(delta) {
+    if(this.size < this.maxsize) {
+        this.size += delta
+        if(this.size > this.maxsize) {
+            this.size = this.maxsize
+        }
+    }
+
     this.rotation += this.rotationspeed * 3 * delta
     this.x += Math.cos(this.angle * (Math.PI / 180)) * this.speed * delta
     this.y += Math.sin(this.angle * (Math.PI / 180)) * this.speed * delta

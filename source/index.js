@@ -11,13 +11,17 @@ var NinjaStar = require("./scripts/models/NinjaStar")
 
 var Levels = require("./scripts/data/Levels")
 var Images = require("./scripts/data/Images")
+var Music = require("./scripts/data/Music")
+
+Music.one.loop = true
+Music.one.volume = 0
+Music.one.play()
 
 window.WIDTH = 1024
 window.HEIGHT = 576
 
 new Game()
 new Ninja()
-
 var lvl = getURLQuery("level") || 0
 for(var index in Levels[lvl].monsters) {
     var monster = Levels[lvl].monsters[index]

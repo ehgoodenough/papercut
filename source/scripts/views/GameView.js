@@ -3,6 +3,7 @@ var React = require("react")
 var FrameView = require("./FrameView")
 var EntityView = require("./EntityView")
 var ForEachView = require("./ForEachView")
+var GUIView = require("./GUIView")
 
 var GameView = React.createClass({
     render: function() {
@@ -12,6 +13,7 @@ var GameView = React.createClass({
                 <ForEachView data={game.monsters} view={EntityView}/>
                 <EntityView data={game.ninja}/>
                 <ForEachView data={game.ninjastars} view={EntityView}/>
+                <GUIView data={game.ninja}/>
             </FrameView>
         )
     }
