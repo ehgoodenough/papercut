@@ -2,7 +2,7 @@ var Mouse = require("../utilities/Mouse")
 var Keyboard = require("../utilities/Keyboard")
 var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 
-var NinjaStar = require("./NinjaStar")
+var Projectile = require("./Projectile")
 
 var Images = require("../data/Images.js")
 
@@ -18,6 +18,7 @@ var Ninja = function(protoninja) {
     this.vmax = 0.075
 
     this.size = 48
+    this.rendersize = this.size * 2
 
     this.speed = 3
     this.direction = +1
@@ -48,10 +49,10 @@ Ninja.prototype.getStyle = function() {
     }
     return {
         opacity: opacity,
-        width: (this.size * 2) + "em",
-        height: (this.size * 2) + "em",
-        left: (this.x - ((this.size * 2) / 2)) + "em",
-        top: (this.y - ((this.size * 2) / 2)) + "em",
+        width: this.rendersize + "em",
+        height: this.rendersize + "em",
+        left: (this.x - (this.rendersize / 2)) + "em",
+        top: (this.y - (this.rendersize / 2)) + "em",
         backgroundSize: "contain",
         backgroundImage: "url('" + image + "')",
         transform: "scaleX(" + this.direction + ")",
@@ -90,11 +91,11 @@ Ninja.prototype.update = function(fluxdelta, delta) {
             if(event.type == "click") {
                 this.hasMoved = true
                 this.state.attacking = 3
-                var angle = getAngleBetweenPoints(this, event)
-                new NinjaStar({
-                    x: this.x,
-                    y: this.y,
-                    angle: angle
+                var direction = getAngleBetweenPoints(this, event)
+                new Projectile({
+                    "x": this.x,
+                    "y": this.y,
+                    "direction": direction
                 })
             }
         }

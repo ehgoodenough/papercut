@@ -20,9 +20,18 @@ var Images = {
             "attacking": DataURI("./source/images/skeleton-warlord-attacking.png"),
             "attack": DataURI("./source/images/skeleton-warlord-attack.png"),
             "dead": DataURI("./source/images/skeleton-warlord-dead.png"),
+        },
+        "archer": {
+            "idle": DataURI("./source/images/skeleton-archer-idle.png"),
+            "notching": DataURI("./source/images/skeleton-archer-notching.png"),
+            "aiming": DataURI("./source/images/skeleton-archer-aiming.png"),
+            "dead": DataURI("./source/images/skeleton-archer-dead.png"),
         }
     },
-    "ninjastar": DataURI("./source/images/ninjastar.png"),
+    "projectiles": {
+        "ninjastar": DataURI("./source/images/projectile-ninjastar.png"),
+        "arrow": DataURI("./source/images/projectile-arrow.png")
+    }
 }
 
 module.exports = Images
