@@ -104,9 +104,7 @@ Ninja.prototype.getAttacked = function(attacker) {
             if(this.health <= 0) {
                 // you are dead
                 this.isDead = true
-                window.setTimeout(function() {
-                    new window.Game(window.game.lvl)
-                }.bind(this), 2000)
+                window.game.checkLoseCondition()
             } else {
                 var angle = getAngleBetweenPoints(attacker, this)
                 this.x += Math.cos(angle * (Math.PI / 180)) * 50

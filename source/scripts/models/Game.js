@@ -5,7 +5,7 @@ var NinjaStar = require("./NinjaStar")
 
 var Levels = require("../data/Levels")
 
-window.Game = function(lvl) {
+var Game = function(lvl) {
     window.game = this
 
     this.lvl = lvl
@@ -26,6 +26,30 @@ window.Game = function(lvl) {
             new SkeletonWarlord(monster)
         }
 
+    }
+}
+
+Game.prototype.checkWinCondition = function() {
+    var allAreDead = true
+    for(var id in this.monsters) {
+        var monster = this.monsters[id]
+        if(monster.alive == true) {
+            allAreDead = false
+            break
+        }
+    }
+    if(allAreDead == true) {
+        window.setTimeout(function() {
+            new Game(this.lvl + 1)
+        }.bind(this), 5000)
+    }
+}
+
+Game.prototype.checkLoseCondition = function() {
+    if(window.game.ninja.isDead == true) {
+        window.setTimeout(function() {
+            new Game(this.lvl)
+        }.bind(this), 5000)
     }
 }
 
