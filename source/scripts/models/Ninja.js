@@ -2,6 +2,7 @@ var Mouse = require("../utilities/Mouse")
 var Keyboard = require("../utilities/Keyboard")
 var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 
+var AOE = require("./AOE")
 var Projectile = require("./Projectile")
 
 var Images = require("../data/Images.js")
@@ -28,7 +29,9 @@ var Ninja = function(protoninja) {
     }
     this.damageCooldown = 0
 
-    this.health = 2.5
+    this.health = 3
+
+    this.damage = 1
 
     this.delta = 1
     this.hasMoved
@@ -37,8 +40,12 @@ var Ninja = function(protoninja) {
 
 Ninja.prototype.getStyle = function() {
     var image = Images.ninja.moving.west
-    if(this.state.attacking > 0) {
-        image = Images.ninja.attacking
+    if(this.isDead == true) {
+        image = Images.ninja.dead
+    } else if(this.state.slashing > 0) {
+        image = Images.ninja.slashing
+    } else if(this.state.attacking > 0) {
+        image = Images.ninja.throwing
     }
     var opacity = 1
     if(this.damageCooldown == true) {
@@ -85,6 +92,43 @@ Ninja.prototype.update = function(fluxdelta, delta) {
             this.hasMoved = true
             this.x += this.speed * fluxdelta
             this.direction = -1
+        } if(Keyboard.isJustDown("<space>")) {
+            var direction = this.direction * -1
+            this.x += direction * 100
+            this.state.slashing = 3
+        }
+        this.x += this.vx * fluxdelta
+        this.y += this.vy * fluxdelta
+        var friction = 0.000005
+        if(this.vx > 0) {
+            this.vx *= Math.pow(friction, fluxdelta)
+            if(this.vx < 0) {
+                this.vx = 0
+            }
+        } if(this.vx < 0) {
+            this.vx *= Math.pow(friction, fluxdelta)
+            if(this.vx > 0) {
+                this.vx = 0
+            }
+        } if(this.vy > 0) {
+            this.vy *= Math.pow(friction, fluxdelta)
+            if(this.vy < 0) {
+                this.vy = 0
+            }
+        } if(this.vy < 0) {
+            this.vy *= Math.pow(friction, fluxdelta)
+            if(this.vy > 0) {
+                this.vy = 0
+            }
+        }
+        if(this.x < 0) {
+            this.x = 0
+        } if(this.y < 0) {
+            this.y = 0
+        } if(this.x > window.WIDTH) {
+            this.x = window.WIDTH
+        } if(this.y > window.HEIGHT) {
+            this.y = window.HEIGHT
         }
         while(Mouse.events.length > 0) {
             var event = Mouse.events.shift()
@@ -95,9 +139,21 @@ Ninja.prototype.update = function(fluxdelta, delta) {
                 new Projectile({
                     "x": this.x,
                     "y": this.y,
-                    "direction": direction
+                    "direction": direction,
+                    "damage": 1,
                 })
             }
+        }
+        if(this.state.slashing > 0) {
+            if(this.state.slashing == 3) {
+                new AOE({
+                    x: this.x + ((this.direction * -1) * 64),
+                    y: this.y,
+                    width: 64,
+                    height: 64,
+                })
+            }
+            this.state.slashing -= fluxdelta
         }
     } else {
         this.state.dying -= 0.5 * delta
