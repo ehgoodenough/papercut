@@ -54,7 +54,13 @@ Projectile.prototype.update = function(delta) {
         }
     }
 
-    this.rotation += 9 * delta
+    if(this.type == "ninjastar") {
+        if(Math.abs(this.direction) < 90) {
+            this.rotation += 9 * delta
+        } else {
+            this.rotation -= 9 * delta
+        }
+    }
 
     this.x += Math.cos(this.direction * (Math.PI / 180)) * this.speed * delta
     this.y += Math.sin(this.direction * (Math.PI / 180)) * this.speed * delta

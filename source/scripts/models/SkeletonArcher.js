@@ -4,6 +4,7 @@ var Projectile = require("./Projectile")
 
 var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
+var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 var Images = require("../data/Images")
 
@@ -23,6 +24,8 @@ var SkeletonArcher = function(protomonster) {
     this.action = {}
     this.direction = +1
 
+    this.opacity = 1.5
+
     this.deltas = []
 }
 
@@ -38,6 +41,7 @@ SkeletonArcher.prototype.getStyle = function() {
         image = Images.skeleton.archer.aiming
     }
     return {
+        opacity: this.opacity.toFixed(2),
         width: this.rendersize + "em",
         height: this.rendersize + "em",
         left: this.x - (this.rendersize / 2) + "em",
@@ -134,13 +138,25 @@ SkeletonArcher.prototype.update = function(delta) {
                     this.y = window.HEIGHT
                 }
             }
+            if(hasCircularCollision(this, ninja)){
+                ninja.getAttacked(this)
+            }
         }
+    } else {
+       this.opacity -= 0.01 * delta
+       if(this.opacity <= 0) {
+           this.remove()
+       }
     }
 }
 
 SkeletonArcher.prototype.getAttacked = function(source) {
     this.alive = false
     window.game.checkWinCondition()
+}
+
+SkeletonArcher.prototype.remove = function() {
+    delete window.game.monsters[this.id]
 }
 
 module.exports = SkeletonArcher

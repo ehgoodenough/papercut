@@ -5,17 +5,10 @@ var getURLQuery = require("./scripts/utilities/getURLQuery")
 
 var Game = require("./scripts/models/Game")
 
-var Images = require("./scripts/data/Images")
-var Music = require("./scripts/data/Music")
-
-Music.crazy.loop = true
-Music.crazy.volume = 0
-Music.crazy.play()
-
 window.WIDTH = 1024
 window.HEIGHT = 576
 
-var lvl = getURLQuery("level") || 0
+var lvl = parseInt(getURLQuery("level")) || 0
 new Game(lvl)
 
 window.view = require("./scripts/views/GameView")
