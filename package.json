@@ -6,7 +6,8 @@
   "window": {
     "width": 512,
     "height": 288,
-    "title": "Papercut"
+    "title": "Papercut",
+    "toolbar": false
   },
   "license": {
     "type": "mit",

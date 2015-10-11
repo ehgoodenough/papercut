@@ -19,7 +19,7 @@ var SkeletonWarlord = function(protomonster) {
     this.health = 3
     this.currentAction = {}
     this.attackRange = 100
-    
+
     this.direction = +1
     this.opacity = 1.5
 
@@ -54,7 +54,7 @@ SkeletonWarlord.prototype.update = function(delta) {
         this.deltas.push(delta)
         if(this.deltas.length > 3) {
             this.deltas.shift()
-        } 
+        }
         if(this.deltas.length == 3
         && this.deltas[0] < this.deltas[1]
         && this.deltas[1] > this.deltas[2]) {
@@ -64,10 +64,10 @@ SkeletonWarlord.prototype.update = function(delta) {
             }
             else{
                 this.currentAction.moveTo = {
-                        x: window.game.ninja.x, 
+                        x: window.game.ninja.x,
                         y: window.game.ninja.y
                 }
-            }    
+            }
             var angle = getAngleBetweenPoints(this, window.game.ninja)
             this.direction = Math.abs(angle) > 90 ? +1 : -1
             var distance = getDistanceBetweenPoints(this, window.game.ninja)
@@ -75,7 +75,7 @@ SkeletonWarlord.prototype.update = function(delta) {
         }
 
         if(hasCircularCollision(this, window.game.ninja)){
-                this.attackPlayer()
+            window.game.ninja.getAttacked(this)
         }
 
         if (this.currentAction && this.currentAction.moveTo){
@@ -104,7 +104,7 @@ SkeletonWarlord.prototype.update = function(delta) {
 }
 
 SkeletonWarlord.prototype.attackPlayer = function () {
-    window.game.ninja.getAttacked()
+    window.game.ninja.getAttacked(this)
 }
 
 SkeletonWarlord.prototype.die = function() {

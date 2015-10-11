@@ -82,8 +82,13 @@ var GameView = React.createClass({
                     }}/>
                 )
             } else if(admin.show == "highscores") {
-                var scores = [
-                ]
+                var scores = {
+                    "andrew": 100332,
+                    "DVD": 93214,
+                    "L3WIS": 43145,
+                    "arcym": 33951,
+                    "tom hanks": 21315,
+                }
                 return (
                     <div style={{padding: "32em"}}>
                         <span style={{fontWeight: "bold", fontSize: "128em"}}>HIGHSCORES!</span>

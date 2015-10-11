@@ -57,7 +57,7 @@ Game.prototype.checkWinCondition = function() {
                 admin.scroll = -100
                 new Game(0)
             }
-        }.bind(this), 5000)
+        }.bind(this), 2500)
     }
 }
 
@@ -66,7 +66,7 @@ Game.prototype.checkLoseCondition = function() {
         window.setTimeout(function() {
             admin.show = "losescreen"
             new Game(this.level_id)
-        }.bind(this), 5000)
+        }.bind(this), 2500)
     }
 }
 
