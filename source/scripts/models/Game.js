@@ -16,6 +16,7 @@ var Game = function(lvl) {
     this.ninja = {}
     this.monsters = {}
     this.projectiles = {}
+    this.aoes = {}
 
     new Ninja()
     for(var index in Levels[lvl].monsters) {

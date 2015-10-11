@@ -12,6 +12,7 @@ var GameView = React.createClass({
             <FrameView aspect-ratio="1024x576">
                 <ForEachView data={game.monsters} view={EntityView}/>
                 <EntityView data={game.ninja}/>
+                <ForEachView data={game.aoes} view={EntityView}/>
                 <ForEachView data={game.projectiles} view={EntityView}/>
                 <GUIView data={game.ninja}/>
             </FrameView>

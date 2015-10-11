@@ -86,6 +86,7 @@ SkeletonArcher.prototype.update = function(delta) {
                         direction: angle,
                         target: "ninjas",
                         type: "arrow",
+                        damage: 0.5,
                     })
                     // after loosing the arrow, the
                     // archer moves around randomly.

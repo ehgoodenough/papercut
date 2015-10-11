@@ -29,15 +29,11 @@ Loop(function(delta) {
 
     game.ninja.update(fluxdelta, delta)
     for(var id in game.monsters) {
-        var monster = game.monsters[id]
-        monster.update(fluxdelta)
+        game.monsters[id].update(fluxdelta)
     } for(var id in game.projectiles) {
-        var monster = game.projectiles[id]
-        monster.update(fluxdelta)
-    }
-
-    if(Keyboard.isDown("<space>")) {
-        throw -1
+        game.projectiles[id].update(fluxdelta)
+    } for(var id in game.aoes) {
+        game.aoes[id].update(fluxdelta)
     }
 
     if(window.view != undefined) {
