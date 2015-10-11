@@ -5,13 +5,6 @@ var getURLQuery = require("./scripts/utilities/getURLQuery")
 
 var Game = require("./scripts/models/Game")
 
-var Images = require("./scripts/data/Images")
-var Music = require("./scripts/data/Music")
-
-Music.crazy.loop = true
-Music.crazy.volume = 0
-Music.crazy.play()
-
 window.WIDTH = 1024
 window.HEIGHT = 576
 
