@@ -1,5 +1,5 @@
 // Array of levels.
-[
+module.exports = [
     // Level 1 - Zombie Intro
     // Goal: teach the player to punch a hole in a zombie surround and kite.
     {
@@ -24,7 +24,7 @@
             {"tx" : 24, "ty" : 15, "id" : "grunt"},
         ],
     },
-    
+
     // Level 2 - Skeledude Intro
     // Teach the player to flank the skeleton shield guys
     {
@@ -194,12 +194,12 @@
             {"tx" : 6, "ty" : 2, "id" : "archer"},
             {"tx" : 1, "ty" : 9, "id" : "archer"},
             {"tx" : 6, "ty" : 16, "id" : "archer"},
-            
+
             {"tx" : 26, "ty" : 2, "id" : "archer"},
             {"tx" : 31, "ty" : 9, "id" : "archer"},
             {"tx" : 26, "ty" : 16, "id" : "archer"},
 
-            // Grunt wedges to add pressure and screen some archers from 
+            // Grunt wedges to add pressure and screen some archers from
             // instant shuriken murder.
             {"tx" : 3, "ty" : 8, "id" : "grunt"},
             {"tx" : 4, "ty" : 9, "id" : "grunt"},
