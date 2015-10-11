@@ -151,8 +151,8 @@ SkeletonArcher.prototype.update = function(delta) {
 }
 
 SkeletonArcher.prototype.getAttacked = function(source) {
-    window.game.checkWinCondition()
     this.alive = false
+    window.game.checkWinCondition()
 }
 
 SkeletonArcher.prototype.remove = function() {

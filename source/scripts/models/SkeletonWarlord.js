@@ -6,7 +6,7 @@ var hasCircularCollision = require("../utilities/hasCircularCollision")
 var SkeletonWarlord = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
-    
+
     this.x = protomonster.x || protomonster.tx * 32 || 0
     this.y = protomonster.y || protomonster.ty * 32 || 0
     this.alive = true
@@ -35,9 +35,9 @@ SkeletonWarlord.prototype.update = function(delta) {
                 this.currentAction = {}  //TODO: Attack!
             }
             else{
-                this.currentAction = { 
+                this.currentAction = {
                     moveTo: {
-                        x: window.game.ninja.x, 
+                        x: window.game.ninja.x,
                         y: window.game.ninja.y
                     }
                 }
@@ -46,11 +46,11 @@ SkeletonWarlord.prototype.update = function(delta) {
         if (this.currentAction && this.currentAction.moveTo){
             if (this.currentAction.moveTo.y > this.y)
                 this.y += this.speed * delta
-            else 
+            else
                 this.y -= this.speed * delta
             if (this.currentAction.moveTo.x > this.x)
                 this.x += this.speed * delta
-            else 
+            else
                 this.x -= this.speed * delta
         }
     }
@@ -62,6 +62,7 @@ SkeletonWarlord.prototype.attackPlayer = function () {
 
 SkeletonWarlord.prototype.die = function() {
     this.alive = false
+    window.game.checkWinCondition()
 }
 
 SkeletonWarlord.prototype.getAttacked = function(source) {
