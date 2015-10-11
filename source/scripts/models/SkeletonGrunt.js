@@ -13,7 +13,6 @@ var SkeletonGrunt = function(protomonster) {
     this.size = 48
     this.speed = 1
     this.currentAction = null
-    this.attackRange = 100
 }
 
 SkeletonGrunt.prototype.getStyle = function() {
@@ -43,14 +42,18 @@ SkeletonGrunt.prototype.update = function(delta) {
         }
 
         if (this.currentAction && this.currentAction.moveTo){
-            if (this.currentAction.moveTo.y > this.y)
+            if (this.currentAction.moveTo.y > this.y){
                 this.y += this.speed * delta
-            else 
+            }
+            else {
                 this.y -= this.speed * delta
-            if (this.currentAction.moveTo.x > this.x)
+            }
+            if (this.currentAction.moveTo.x > this.x){
                 this.x += this.speed * delta
-            else 
+            }
+            else {
                 this.x -= this.speed * delta
+            }
         }
     }
 }
