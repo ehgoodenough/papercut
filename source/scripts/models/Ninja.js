@@ -18,6 +18,7 @@ var Ninja = function() {
     this.vmax = 0.075
 
     this.size = 48
+    this.rendersize = this.size * 2
 
     this.speed = 3
     this.direction = +1
@@ -47,10 +48,10 @@ Ninja.prototype.getStyle = function() {
     }
     return {
         opacity: opacity,
-        width: (this.size * 2) + "em",
-        height: (this.size * 2) + "em",
-        left: (this.x - ((this.size * 2) / 2)) + "em",
-        top: (this.y - ((this.size * 2) / 2)) + "em",
+        width: this.rendersize + "em",
+        height: this.rendersize + "em",
+        left: (this.x - (this.rendersize / 2)) + "em",
+        top: (this.y - (this.rendersize / 2)) + "em",
         backgroundSize: "contain",
         backgroundImage: "url('" + image + "')",
         transform: "scaleX(" + this.direction + ")",

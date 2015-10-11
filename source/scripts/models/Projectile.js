@@ -11,23 +11,38 @@ var Projectile = function(protoprojectile) {
     this.y = protoprojectile.y || 0
     this.direction = protoprojectile.direction || 0
     this.target = protoprojectile.target || "monsters"
+    this.type = protoprojectile.type || "ninjastar"
 
     this.size = 12
     this.maxsize = 36
+    this.damage = 0.5
 
     this.rotation = 0
     this.speed = 4
 }
 
 Projectile.prototype.getStyle = function() {
-    return {
-        width: this.size + "em",
-        height: this.size + "em",
-        top: (this.y - (this.size / 2)) + "em",
-        left: (this.x - (this.size / 2)) + "em",
-        transform: "rotate(" + this.rotation + "deg)",
-        backgroundImage: "url(" + Images.ninjastar + ")",
-        backgroundSize: "contain",
+    if(this.type == "ninjastar") {
+        return {
+            width: this.size + "em",
+            height: this.size + "em",
+            top: (this.y - (this.size / 2)) + "em",
+            left: (this.x - (this.size / 2)) + "em",
+            transform: "rotate(" + this.rotation + "deg)",
+            backgroundImage: "url(" + Images.projectiles.ninjastar + ")",
+            backgroundSize: "contain",
+        }
+    } else if(this.type == "arrow") {
+        return {
+            width: (this.size * 2.5) + "em",
+            height: (this.size * 2.5) + "em",
+            top: (this.y - ((this.size * 2.5) / 2)) + "em",
+            left: (this.x - ((this.size * 2.5) / 2)) + "em",
+            transform: "rotate(" + (this.direction + 90) + "deg)",
+            backgroundImage: "url(" + Images.projectiles.arrow + ")",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+        }
     }
 }
 
@@ -40,6 +55,7 @@ Projectile.prototype.update = function(delta) {
     }
 
     this.rotation += 9 * delta
+
     this.x += Math.cos(this.direction * (Math.PI / 180)) * this.speed * delta
     this.y += Math.sin(this.direction * (Math.PI / 180)) * this.speed * delta
 
