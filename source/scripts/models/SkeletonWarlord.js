@@ -61,12 +61,12 @@ SkeletonWarlord.prototype.attackPlayer = function () {
 }
 
 SkeletonWarlord.prototype.die = function() {
-    alive = false
+    this.alive = false
 }
 
 SkeletonWarlord.prototype.getAttacked = function(source) {
-    if (this.health > 0){
-        health--
+    if (this.health > 1){
+        this.health--
     }
     else {
         this.die()
