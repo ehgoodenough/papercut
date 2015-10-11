@@ -133,9 +133,9 @@
         ],
     },
 
-    //
+    // The big surround, all factors in play
     {
-        "name" : "?",
+        "name" : "Battle Royale",
         "music" : null,
         "ninja" : {
             "tx" : 16,
@@ -146,7 +146,28 @@
             "ty" : 18,
         },
         "monsters" : [
-            
+            // Flank archers
+            {"tx" : 3, "ty" : 3, "id" : "archer"},
+            {"tx" : 29, "ty" : 15, "id" : "archer"},
+
+            // Archer chaff screen
+            {"tx" : 4, "ty" : 4, "id" : "grunt"},
+            {"tx" : 28, "ty" : 14, "id" : "grunt"},
+
+            // Chaff surround
+            // Left side, top to bottom:
+            {"tx" : 8, "ty" : 3, "id" : "grunt"},
+            {"tx" : 4, "ty" : 9, "id" : "grunt"},
+            {"tx" : 8, "ty" : 15, "id" : "grunt"},
+            // Right side, top to bottom:
+            {"tx" : 24, "ty" : 3, "id" : "grunt"},
+            {"tx" : 28, "ty" : 9, "id" : "grunt"},
+            {"tx" : 24, "ty" : 15, "id" : "grunt"},
+
+            // Asymmetrical heavy flankers
+            {"tx" : 5, "ty" : 4, "id" : "warlord"},
+            {"tx" : 17, "ty" : 2, "id" : "warlord"},
+            {"tx" : 30, "ty" : 8, "id" : "warlord"},
         ]
     },
 ]
