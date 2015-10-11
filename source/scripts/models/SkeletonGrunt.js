@@ -40,14 +40,18 @@ SkeletonGrunt.prototype.update = function(delta) {
     }
     
     if (this.currentAction && this.currentAction.moveTo){
-        if (this.currentAction.moveTo.y > this.y)
+        if (this.currentAction.moveTo.y > this.y){
             this.y += this.speed * delta
-        else 
+        }
+        else {
             this.y -= this.speed * delta
-        if (this.currentAction.moveTo.x > this.x)
+        }
+        if (this.currentAction.moveTo.x > this.x){
             this.x += this.speed * delta
-        else 
+        }
+        else {
             this.x -= this.speed * delta
+        }
     }
 }
 
