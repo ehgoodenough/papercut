@@ -329,13 +329,13 @@ module.exports = [
         },
         "monsters" : [
             // Ring of archery
-            {"tx" : 6, "ty" : 2, "id" : "archer"},
+            {"tx" : 12, "ty" : 2, "id" : "archer"},
             {"tx" : 1, "ty" : 9, "id" : "archer"},
             {"tx" : 6, "ty" : 16, "id" : "archer"},
             
             {"tx" : 26, "ty" : 2, "id" : "archer"},
             {"tx" : 31, "ty" : 9, "id" : "archer"},
-            {"tx" : 26, "ty" : 16, "id" : "archer"},
+            {"tx" : 20, "ty" : 16, "id" : "archer"},
 
             // Ring of Shields
             {"tx" : 9, "ty" : 4, "id" : "warlord"},
