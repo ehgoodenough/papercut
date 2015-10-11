@@ -4,6 +4,7 @@ var SkeletonWarlord = require("./SkeletonWarlord")
 var NinjaStar = require("./NinjaStar")
 
 var Levels = require("../data/Levels")
+var PlayFab = require("../utilities/PlayFab")
 
 var Game = function(lvl) {
     window.game = this
@@ -48,6 +49,18 @@ Game.prototype.checkWinCondition = function() {
 Game.prototype.checkLoseCondition = function() {
     if(window.game.ninja.isDead == true) {
         window.setTimeout(function() {
+            PlayFab.client.LogEvent({
+                EventName: "deaths",
+                Body: {
+                    "level_number": this.lvl
+                }
+            }, function(error, results) {
+                if(error) {
+                    console.log("error:", error)
+                } else {
+                    consle.log(results)
+                }
+            })
             new Game(this.lvl)
         }.bind(this), 5000)
     }

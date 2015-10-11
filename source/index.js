@@ -2,6 +2,7 @@ var Loop = require("./scripts/utilities/Loop")
 var Mouse = require("./scripts/utilities/Mouse")
 var Keyboard = require("./scripts/utilities/Keyboard")
 var getURLQuery = require("./scripts/utilities/getURLQuery")
+var PlayFab = require("./scripts/utilities/PlayFab")
 
 var Game = require("./scripts/models/Game")
 
