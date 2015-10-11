@@ -141,10 +141,46 @@
         ],
     },
 
-    // Level 6 - Archery surround
+    // Level 6 - Mastery opportunity
+    // both vulnerable and protected targets, but not particularly difficult (pacing)
     {
         "name" : "Dodgeball",
         "music" : "chaos",
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
+        "monsters" : [
+            // Protected Archers
+            {"tx" : 4, "ty" : 4, "id" : "archer"},
+            {"tx" : 4, "ty" : 14, "id" : "archer"},
+
+            // Grunt screens
+            {"tx" : 4, "ty" : 3, "id" : "grunt"},
+            {"tx" : 5, "ty" : 4, "id" : "grunt"},
+            {"tx" : 4, "ty" : 5, "id" : "grunt"},
+
+            {"tx" : 4, "ty" : 13, "id" : "grunt"},
+            {"tx" : 5, "ty" : 14, "id" : "grunt"},
+            {"tx" : 4, "ty" : 15, "id" : "grunt"},
+
+            // Isolated warlord
+            {"tx" : 28, "ty" : 3, "id" : "warlord"},
+
+            // Isolated archers
+            {"tx" : 4, "ty" : 10, "id" : "archer"},
+            {"tx" : 4, "ty" : 16, "id" : "archer"},
+        ],
+    },
+
+    // Level 7 - Archery surround
+    {
+        "name" : "Dodgeball",
+        "music" : "final",
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -175,7 +211,7 @@
         ],
     },
 
-    // Level 7 - All Factors
+    // Level 8 - All Factors
     // The big surround, all factors in play
     // Dealing with a non-zombie surround sitation; search for weak points.
     {
