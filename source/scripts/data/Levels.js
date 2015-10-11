@@ -1,5 +1,5 @@
-// Array of levels.
 module.exports = [
+// Array of levels.
     // Level 1 - Zombie Intro
     // Goal: teach the player to punch a hole in a zombie surround and kite.
     {
@@ -144,7 +144,7 @@ module.exports = [
     // Level 6 - Mastery opportunity
     // both vulnerable and protected targets, but not particularly difficult (pacing)
     {
-        "name" : "Dodgeball",
+        "name" : "Mastery",
         "music" : "chaos",
         "ninja" : {
             "tx" : 16,
