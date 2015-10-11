@@ -49,10 +49,13 @@ module.exports = [
             "ty" : 18,
         },
         "monsters" : [
-            // Top side, left to right
+            {"tx" : 6, "ty" : 4, "id" : "grunt"},
+            {"tx" : 7, "ty" : 5, "id" : "grunt"},
             {"tx" : 8, "ty" : 4, "id" : "grunt"},
             {"tx" : 16, "ty" : 1, "id" : "warlord"},
             {"tx" : 24, "ty" : 4, "id" : "grunt"},
+            {"tx" : 25, "ty" : 5, "id" : "grunt"},
+            {"tx" : 26, "ty" : 4, "id" : "grunt"},
         ],
     },
 
