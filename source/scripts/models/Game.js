@@ -5,6 +5,7 @@ var SkeletonArcher = require("./SkeletonArcher")
 var SkeletonWarlord = require("./SkeletonWarlord")
 
 var Levels = require("../data/Levels")
+var Images = require("../data/Images")
 var MusicManager = require("../utilities/MusicManager")
 
 var Game = function(level_id) {
@@ -34,6 +35,8 @@ var Game = function(level_id) {
     if(!!protolevel.music) {
         MusicManager.play(protolevel.music)
     }
+
+    this.background = protolevel.background || 0
 }
 
 Game.prototype.checkWinCondition = function() {
@@ -57,6 +60,15 @@ Game.prototype.checkLoseCondition = function() {
         window.setTimeout(function() {
             new Game(this.level_id)
         }.bind(this), 5000)
+    }
+}
+
+Game.prototype.getStyle = function() {
+    return {
+        width: "100%",
+        height: "100%",
+        backgroundSize: "cover",
+        backgroundImage: "url(" + Images.paper[this.background] + ")",
     }
 }
 

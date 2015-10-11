@@ -164,8 +164,8 @@ Ninja.prototype.getAttacked = function(attacker) {
                 window.game.checkLoseCondition()
             } else {
                 var angle = getAngleBetweenPoints(attacker, this)
-                this.x += Math.cos(angle * (Math.PI / 180)) * 50
-                this.y += Math.sin(angle * (Math.PI / 180)) * 50
+                this.x += Math.cos(angle * (Math.PI / 180)) * 60
+                this.y += Math.sin(angle * (Math.PI / 180)) * 60
                 this.damageCooldown = true
                 window.setTimeout(function() {
                     this.damageCooldown = false

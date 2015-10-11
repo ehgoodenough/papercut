@@ -50,35 +50,37 @@ SkeletonGrunt.prototype.getStyle = function() {
 
 SkeletonGrunt.prototype.update = function(delta) {
     var ninja = window.game.ninja
-    if(this.alive && window.game.ninja.isDead === false) {
-        if(delta > .9) {
-            this.currentAction = {
-                moveTo: {
-                    x: ninja.x,
-                    y: ninja.y
+    if(this.alive) {
+        if(ninja.isDead === false) {
+            if(delta > .9) {
+                this.currentAction = {
+                    moveTo: {
+                        x: ninja.x,
+                        y: ninja.y
+                    }
                 }
+                var angle = getAngleBetweenPoints(this, ninja)
+                this.direction = Math.abs(angle) > 90 ? +1 : -1
+                var distance = getDistanceBetweenPoints(this, ninja)
+                this.distance = Math.floor(distance / 50)
             }
-            var angle = getAngleBetweenPoints(this, ninja)
-            this.direction = Math.abs(angle) > 90 ? +1 : -1
-            var distance = getDistanceBetweenPoints(this, ninja)
-            this.distance = Math.floor(distance / 50)
-        }
-        if(hasCircularCollision(this, window.game.ninja)){
-            this.attackPlayer()
-        }
+            if(hasCircularCollision(this, window.game.ninja)){
+                this.attackPlayer()
+            }
 
-        if (this.currentAction && this.currentAction.moveTo){
-            if (this.currentAction.moveTo.y > this.y){
-                this.y += this.speed * delta
-            }
-            else {
-                this.y -= this.speed * delta
-            }
-            if (this.currentAction.moveTo.x > this.x){
-                this.x += this.speed * delta
-            }
-            else {
-                this.x -= this.speed * delta
+            if (this.currentAction && this.currentAction.moveTo){
+                if (this.currentAction.moveTo.y > this.y){
+                    this.y += this.speed * delta
+                }
+                else {
+                    this.y -= this.speed * delta
+                }
+                if (this.currentAction.moveTo.x > this.x){
+                    this.x += this.speed * delta
+                }
+                else {
+                    this.x -= this.speed * delta
+                }
             }
         }
     } else {

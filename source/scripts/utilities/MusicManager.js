@@ -7,7 +7,7 @@ var MusicManager = {
         }
         this.music = Music[music_name]
         this.music.loop = true
-        this.music.volume = 0.75
+        this.music.volume = 0
         this.music.play()
     }
 }

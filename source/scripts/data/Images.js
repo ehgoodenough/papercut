@@ -1,7 +1,11 @@
 var DataURI = require("datauri")
 
 var Images = {
-    "paper": DataURI("./source/images/paper.png"),
+    "paper": {
+        "0": DataURI("./source/images/paper-0.png"),
+        "1": DataURI("./source/images/paper-1.png"),
+        "2": DataURI("./source/images/paper-2.png"),
+    },
     "gui": {
         "flux": DataURI("./source/images/gui-flux.png"),
         "yin": DataURI("./source/images/gui-yin.png"),

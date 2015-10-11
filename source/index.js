@@ -8,7 +8,7 @@ var Game = require("./scripts/models/Game")
 window.WIDTH = 1024
 window.HEIGHT = 576
 
-var lvl = getURLQuery("level") || 0
+var lvl = parseInt(getURLQuery("level")) || 0
 new Game(lvl)
 
 window.view = require("./scripts/views/GameView")
