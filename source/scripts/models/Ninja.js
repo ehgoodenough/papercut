@@ -11,7 +11,7 @@ var Ninja = function() {
 
     this.x = WIDTH / 2
     this.y = HEIGHT / 2
-
+    
     this.vx = 0
     this.vy = 0
     this.vmin = 0.001
@@ -86,7 +86,7 @@ Ninja.prototype.update = function(delta) {
 }
 
 Ninja.prototype.getAttacked = function(){
-    //TODO 
+    //TODO
 }
 
 module.exports = Ninja
