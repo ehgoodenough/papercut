@@ -16,7 +16,7 @@ var Game = function(lvl) {
     this.monsters = {}
     this.ninjastars = {}
 
-    new Ninja()
+    new Ninja(Levels[lvl].ninja)
     for(var index in Levels[lvl].monsters) {
         var monster = Levels[lvl].monsters[index]
         if (monster.id === "grunt"){
@@ -25,7 +25,9 @@ var Game = function(lvl) {
         else if (monster.id === "warlord"){
             new SkeletonWarlord(monster)
         }
-
+        else if (monster.id === "archer"){
+            new SkeletonArcher(monster)
+        }
     }
 }
 

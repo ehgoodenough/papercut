@@ -6,11 +6,11 @@ var NinjaStar = require("./NinjaStar")
 
 var Images = require("../data/Images.js")
 
-var Ninja = function() {
+var Ninja = function(protoninja) {
     window.game.ninja = this
 
-    this.x = WIDTH / 2
-    this.y = HEIGHT / 2
+    this.x = protoninja.x || protoninja.tx * 32 || WIDTH / 2
+    this.y = protoninja.y || protoninja.ty * 32 || HEIGHT / 2
 
     this.vx = 0
     this.vy = 0
@@ -30,6 +30,7 @@ var Ninja = function() {
     this.health = 2.5
 
     this.delta = 1
+    this.hasMoved
     this.isDead = false
 }
 
@@ -67,22 +68,27 @@ Ninja.prototype.update = function(fluxdelta, delta) {
         this.delta = fluxdelta
         if(Keyboard.isDown("W")
         || Keyboard.isDown("<up>")) {
+            this.hasMoved = true
             this.y -= this.speed * fluxdelta
         } if(Keyboard.isDown("S")
         || Keyboard.isDown("<down>")) {
+            this.hasMoved = true
             this.y += this.speed * fluxdelta
         } if(Keyboard.isDown("A")
         || Keyboard.isDown("<left>")) {
+            this.hasMoved = true
             this.x -= this.speed * fluxdelta
             this.direction = +1
         } if(Keyboard.isDown("D")
         || Keyboard.isDown("<right>")) {
+            this.hasMoved = true
             this.x += this.speed * fluxdelta
             this.direction = -1
         }
         while(Mouse.events.length > 0) {
             var event = Mouse.events.shift()
             if(event.type == "click") {
+                this.hasMoved = true
                 this.state.attacking = 3
                 var angle = getAngleBetweenPoints(this, event)
                 new NinjaStar({
