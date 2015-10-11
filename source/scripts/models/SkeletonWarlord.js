@@ -23,12 +23,12 @@ SkeletonWarlord.prototype.getStyle = function() {
         height: this.size + "em",
         left: this.x - (this.size / 2) + "em",
         top: this.y - (this.size / 2) + "em",
-        backgroundColor: "orange",
+        backgroundColor: "purple",
     }
 }
 
 SkeletonWarlord.prototype.update = function(delta) {
-    if (this.alive){
+    if (this.alive && window.game.ninja.isDead === false){
         if(delta > .9) {
             var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
             if (distanceToNinja <= this.attackRange){

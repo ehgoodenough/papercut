@@ -52,7 +52,7 @@ NinjaStar.prototype.update = function(delta) {
 
     for(var id in window.game.monsters) {
         var monster = window.game.monsters[id]
-        if(hasCircularCollision(this, monster)) {
+        if(hasCircularCollision(this, monster) && monster.alive === true) {
             monster.getAttacked(this)
             this.remove()
         }
