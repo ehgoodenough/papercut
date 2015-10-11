@@ -12,7 +12,6 @@ var SkeletonGrunt = function(protomonster) {
     this.size = 48
     this.speed = 1
     this.currentAction = null
-    this.attackRange = 100
 }
 
 SkeletonGrunt.prototype.getStyle = function() {
