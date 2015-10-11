@@ -3,7 +3,7 @@ var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
 var hasCircularCollision = require("../utilities/hasCircularCollision")
 
 
-var Monster = function(protomonster) {
+var SkeletonGrunt = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
     
@@ -15,7 +15,7 @@ var Monster = function(protomonster) {
     this.attackRange = 100
 }
 
-Monster.prototype.getStyle = function() {
+SkeletonGrunt.prototype.getStyle = function() {
     return {
         width: this.size + "em",
         height: this.size + "em",
@@ -25,24 +25,21 @@ Monster.prototype.getStyle = function() {
     }
 }
 
-Monster.prototype.update = function(delta) {
+SkeletonGrunt.prototype.update = function(delta) {
     if(delta > .9) {
         var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
-        if (distanceToNinja <= this.attackRange){
-            this.currentAction = {attack: "melee"}  //TODO: Attack!
-        }
-        else{
-            this.currentAction = { 
-                moveTo: {
-                    x: window.game.ninja.x, 
-                    y: window.game.ninja.y
-                }
+        this.currentAction = {
+            moveTo: {
+                x: window.game.ninja.x, 
+                y: window.game.ninja.y
             }
         }
     }
-    if (this.currentAction && this.currentAction.attack) {
-        if(hasCircularCollision(this, window.game.ninja))
+
+    if(hasCircularCollision(this, window.game.ninja)){
+        this.attackPlayer()
     }
+    
     if (this.currentAction && this.currentAction.moveTo){
         if (this.currentAction.moveTo.y > this.y)
             this.y += this.speed * delta
@@ -55,17 +52,17 @@ Monster.prototype.update = function(delta) {
     }
 }
 
-Monster.prototype.attackPlayer = function () {
+SkeletonGrunt.prototype.attackPlayer = function () {
     window.game.ninja.getAttacked()
-    console.log("potato")
+    console.log("Ded.")
 }
 
-Monster.prototype.die = function() {
+SkeletonGrunt.prototype.die = function() {
     delete window.game.monsters[this.id]
 }
 
-Monster.prototype.getAttacked = function(source) {
+SkeletonGrunt.prototype.getAttacked = function(source) {
     this.die()
 }
 
-module.exports = Monster
+module.exports = SkeletonGrunt
