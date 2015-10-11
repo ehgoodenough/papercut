@@ -1,7 +1,6 @@
 // Array of levels.
 [
     // Level 1 - Zombie Intro
-    // Array of monsters in this level.
     {
         "name" : "Zombies!",
         "music" : null,
@@ -9,32 +8,42 @@
             "tx" : 16,
             "ty" : 9,
         },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
         "monsters" : [
             // Left side, top to bottom:
-            {"tx" : 8, "ty" : 3, "id" : "zombie"},
-            {"tx" : 4, "ty" : 9, "id" : "zombie"},
-            {"tx" : 8, "ty" : 12, "id" : "zombie"},
+            {"tx" : 8, "ty" : 3, "id" : "grunt"},
+            {"tx" : 4, "ty" : 9, "id" : "grunt"},
+            {"tx" : 8, "ty" : 15, "id" : "grunt"},
             // Right side, top to bottom:
-            {"tx" : 24, "ty" : 3, "id" : "zombie"},
-            {"tx" : 28, "ty" : 9, "id" : "zombie"},
-            {"tx" : 24, "ty" : 12, "id" : "zombie"},
+            {"tx" : 24, "ty" : 3, "id" : "grunt"},
+            {"tx" : 28, "ty" : 9, "id" : "grunt"},
+            {"tx" : 24, "ty" : 15, "id" : "grunt"},
         ],
     },
+    
     // Level 2 - Skeledude Intro
     {
         "name" : "Meet the Skeleton",
         "music" : null,
         "ninja" : {
             "tx" : 16,
-            "ty" : 9,
+            "ty" : 14,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
         },
         "monsters" : [
             // Top side, left to right
-            {"tx" : 8, "ty" : 4, "id" : "zombie"},
-            {"tx" : 16, "ty" : 1, "id" : "skeleton"},
-            {"tx" : 24, "ty" : 4, "id" : "zombie"},
+            {"tx" : 8, "ty" : 4, "id" : "grunt"},
+            {"tx" : 16, "ty" : 1, "id" : "warlord"},
+            {"tx" : 24, "ty" : 4, "id" : "grunt"},
         ],
     },
+
     // Level 3 - Phalanx
     {
         "name" : "Phalanx",
@@ -43,18 +52,51 @@
             "tx" : 16,
             "ty" : 9,
         },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
         "monsters" : [
             // Zombie block, left to right and top to bottom
-            {"tx" : 8, "ty" : 3, "id" : "zombie"},
-            {"tx" : 16, "ty" : 3, "id" : "zombie"},
-            {"tx" : 24, "ty" : 3, "id" : "zombie"},
-            {"tx" : 8, "ty" : 5, "id" : "zombie"},
-            {"tx" : 16, "ty" : 5, "id" : "zombie"},
-            {"tx" : 24, "ty" : 5, "id" : "zombie"},
+            {"tx" : 12, "ty" : 3, "id" : "grunt"},
+            {"tx" : 16, "ty" : 3, "id" : "grunt"},
+            {"tx" : 20, "ty" : 3, "id" : "grunt"},
+            {"tx" : 8, "ty" : 5, "id" : "grunt"},
+            {"tx" : 16, "ty" : 5, "id" : "grunt"},
+            {"tx" : 24, "ty" : 5, "id" : "grunt"},
             // Skeleton backup
-            {"tx" : 8, "ty" : 1, "id" : "skeleton"},
-            {"tx" : 16, "ty" : 1, "id" : "skeleton"},
-            {"tx" : 24, "ty" : 1, "id" : "skeleton"},
+            {"tx" : 4, "ty" : 1, "id" : "warlord"},
+            {"tx" : 16, "ty" : 1, "id" : "warlord"},
+            {"tx" : 26, "ty" : 1, "id" : "warlord"},
         ],
-    }
+    },
+
+    // Level 4 - Introduction to Archery
+    {
+        "name" : "Crossfire",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
+        "monsters" : [
+            // Block of basic enemies to push player away
+            {"tx" : 10, "ty" : 6, "id" : "grunt"},
+            {"tx" : 12, "ty" : 5, "id" : "grunt"},
+            {"tx" : 16, "ty" : 4, "id" : "Warlord"},
+            {"tx" : 20, "ty" : 5, "id" : "grunt"},
+            {"tx" : 22, "ty" : 6, "id" : "grunt"},
+
+            // Archer flankers to teach the player to go kill them
+            {"tx" : 2, "ty" : 16, "id" : "archer"},
+            {"tx" : 30, "ty" : 16, "id" : "archer"},
+
+            // Enemy to prevent the player from simply kiting backward
+            {"tx" : 16, "ty" : 17, "id" : "warlord"},
+        ],
+    },
 ]
