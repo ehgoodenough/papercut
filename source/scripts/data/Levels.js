@@ -229,7 +229,7 @@ module.exports = [
     // Dodging projectiles from every direction
     {
         "name" : "Dodgeball",
-        "music" : "final",
+        "music" : "chaos",
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -264,7 +264,7 @@ module.exports = [
     // The big surround, all factors in play 
     // Dealing with a non-zombie surround sitation; search for weak points.
     {
-        "name" : "Battle Royale",
+        "name" : "Grand Melee",
         "music" : "final",
         "ninja" : {
             "tx" : 16,
@@ -300,6 +300,59 @@ module.exports = [
             {"tx" : 5, "ty" : 16, "id" : "warlord"},
             {"tx" : 17, "ty" : 2, "id" : "warlord"},
             {"tx" : 30, "ty" : 8, "id" : "warlord"},
+        ],
+    },
+
+    // Level 10 - Double down
+    // Previous level, but with more comprehensive surrounds.
+    // Ability manipulation recommended to beat
+    {
+        "name" : "Last Stand",
+        "music" : "final",
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
+        "monsters" : [
+            // Ring of archery
+            {"tx" : 6, "ty" : 2, "id" : "archer"},
+            {"tx" : 1, "ty" : 9, "id" : "archer"},
+            {"tx" : 6, "ty" : 16, "id" : "archer"},
+            
+            {"tx" : 26, "ty" : 2, "id" : "archer"},
+            {"tx" : 31, "ty" : 9, "id" : "archer"},
+            {"tx" : 26, "ty" : 16, "id" : "archer"},
+
+            // Ring of Shields
+            {"tx" : 9, "ty" : 4, "id" : "warlord"},
+
+            {"tx" : 9, "ty" : 14, "id" : "warlord"},
+            
+            {"tx" : 23, "ty" : 4, "id" : "warlord"},
+
+            {"tx" : 23, "ty" : 14, "id" : "warlord"},
+
+            // Grunt wedges, all four directions
+            {"tx" : 3, "ty" : 8, "id" : "grunt"},
+            {"tx" : 4, "ty" : 9, "id" : "grunt"},
+            {"tx" : 3, "ty" : 10, "id" : "grunt"},
+
+            {"tx" : 29, "ty" : 8, "id" : "grunt"},
+            {"tx" : 28, "ty" : 9, "id" : "grunt"},
+            {"tx" : 29, "ty" : 10, "id" : "grunt"},
+
+            {"tx" : 15, "ty" : 2, "id" : "grunt"},
+            {"tx" : 16, "ty" : 3, "id" : "grunt"},
+            {"tx" : 17, "ty" : 2, "id" : "grunt"},
+
+            {"tx" : 15, "ty" : 16, "id" : "grunt"},
+            {"tx" : 16, "ty" : 15, "id" : "grunt"},
+            {"tx" : 17, "ty" : 16, "id" : "grunt"},
+
         ],
     },
 
