@@ -32,10 +32,10 @@ LichHeart.prototype.update = function(delta) {
     if (this.alive && window.game.ninja.isDead === false && window.game.ninja.hasMoved == true){
         if(delta > .5) {
             var distanceToNearestShuriken = findNearestPlayerProjectile({this.x, this.y})
-            if (distanceToNearestShuriken <= this.attackRange){
-                this.currentAction = {}  //TODO: Attack!
+            if (distanceToNearestShuriken >= this.dodgeRange){
+                //Chill
             }
-            else{
+            else if ({
                 this.currentAction = { 
                     moveTo: {
                         x: window.game.ninja.x
