@@ -9,7 +9,7 @@ var Images = require("./scripts/data/Images")
 var Music = require("./scripts/data/Music")
 
 Music.crazy.loop = true
-Music.crazy.volume = 0.75
+Music.crazy.volume = 0
 Music.crazy.play()
 
 window.WIDTH = 1024
@@ -26,7 +26,7 @@ Loop(function(delta) {
     var a = 1 //amplitude, it bounces from zero to the amplitude.
     var p = 2 //period, the time it takes to bounce between amplitudes.
     var fluxdelta = ((a - 0.05) / 2) * Math.sin(2 * Math.PI * game.time * (1 / p)) + ((a - 0.05) / 2) + 0.05
-
+    
     game.ninja.update(fluxdelta, delta)
     for(var id in game.monsters) {
         var monster = game.monsters[id]

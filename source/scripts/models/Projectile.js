@@ -53,7 +53,7 @@ Projectile.prototype.update = function(delta) {
     if(this.target == "monsters") {
         for(var id in window.game.monsters) {
             var monster = window.game.monsters[id]
-            if(monster.alive) {
+            if(monster.alive == true) {
                 if(hasCircularCollision(this, monster)) {
                     monster.getAttacked(this)
                     this.remove()
@@ -61,7 +61,13 @@ Projectile.prototype.update = function(delta) {
             }
         }
     } else if(this.target == "ninjas") {
-        // ?!
+        var ninja = window.game.ninjas
+        if(ninja.isDead == false) {
+            if(hasCircularCollision(this, ninja)) {
+                ninja.getAttacked(this)
+                this.remove()
+            }
+        }
     }
 }
 
