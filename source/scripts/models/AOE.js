@@ -44,7 +44,11 @@ AOE.prototype.getStyle = function() {
 }
 
 AOE.prototype.update = function(fluxdelta) {
-    this.opacity -= 0.25 * fluxdelta
+    if(this.target === "monsters"){
+        this.opacity -= 0.25 * fluxdelta
+    } else if(this.target === "ninjas"){
+        this.opacity -= 0.02 * fluxdelta
+    }
     if(this.opacity <= 0) {
         this.remove()
     }

@@ -20,7 +20,7 @@ var Game = function(level_id) {
     this.projectiles = {}
     this.aoes = {}
 
-    new Ninja()
+    new Ninja(protolevel.ninja)
     for(var index in protolevel.monsters) {
         var monster = protolevel.monsters[index]
         if(monster.id === "grunt") {
@@ -29,7 +29,7 @@ var Game = function(level_id) {
             new SkeletonWarlord(monster)
         } else if(monster.id === "archer") {
             new SkeletonArcher(monster)
-        }
+        }    
     }
 
     if(!!protolevel.music) {

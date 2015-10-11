@@ -51,7 +51,7 @@ SkeletonGrunt.prototype.getStyle = function() {
 SkeletonGrunt.prototype.update = function(delta) {
     var ninja = window.game.ninja
     if(this.alive) {
-        if(ninja.isDead === false) {
+        if(ninja.isDead === false && ninja.hasMoved == true) {
             if(delta > .9) {
                 this.currentAction = {
                     moveTo: {
