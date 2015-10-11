@@ -12,10 +12,10 @@ var Projectile = function(protoprojectile) {
     this.direction = protoprojectile.direction || 0
     this.target = protoprojectile.target || "monsters"
     this.type = protoprojectile.type || "ninjastar"
+    this.damage = protoprojectile.damage || 0.5
 
     this.size = 12
     this.maxsize = 36
-    this.damage = 0.5
 
     this.rotation = 0
     this.speed = 4

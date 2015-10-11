@@ -1,10 +1,15 @@
 var DataURI = require("datauri")
 
 var Images = {
+    "paper": DataURI("./source/images/paper.png"),
     "gui": {
         "flux": DataURI("./source/images/gui-flux.png"),
         "yin": DataURI("./source/images/gui-yin.png"),
         "yinyang": DataURI("./source/images/gui-yinyang.png"),
+        "play-button": DataURI("./source/images/gui-play-button.png"),
+        "quit-button": DataURI("./source/images/gui-quit-button.png"),
+        "title-screen": DataURI("./source/images/gui-title-screen.png"),
+        "gameover-screen": DataURI("./source/images/gui-gameover-screen.png"),
     },
     "ninja": {
         "moving": {
@@ -12,7 +17,9 @@ var Images = {
             "south": DataURI("./source/images/ninja-moving-south.png"),
             "west": DataURI("./source/images/ninja-moving-west.png"),
         },
-        "attacking": DataURI("./source/images/ninja-attacking.png"),
+        "throwing": DataURI("./source/images/ninja-throwing.png"),
+        "slashing": DataURI("./source/images/ninja-slashing.png"),
+        "dead": DataURI("./source/images/ninja-dead.png")
     },
     "skeleton": {
         "warlord": {
@@ -26,6 +33,12 @@ var Images = {
             "notching": DataURI("./source/images/skeleton-archer-notching.png"),
             "aiming": DataURI("./source/images/skeleton-archer-aiming.png"),
             "dead": DataURI("./source/images/skeleton-archer-dead.png"),
+        },
+        "grunt": {
+            "idle": DataURI("./source/images/skeleton-grunt-idle.png"),
+            "attacking": DataURI("./source/images/skeleton-grunt-attacking.png"),
+            "attack": DataURI("./source/images/skeleton-grunt-attack.png"),
+            "dead": DataURI("./source/images/skeleton-grunt-dead.png"),
         }
     },
     "projectiles": {
