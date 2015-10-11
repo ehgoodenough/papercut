@@ -29,7 +29,7 @@ var Game = function(level_id) {
             new SkeletonWarlord(monster)
         } else if(monster.id === "archer") {
             new SkeletonArcher(monster)
-        }    
+        }
     }
 
     if(!!protolevel.music) {
@@ -50,7 +50,13 @@ Game.prototype.checkWinCondition = function() {
     }
     if(allAreDead == true) {
         window.setTimeout(function() {
-            new Game(this.level_id + 1)
+            if(!!Levels[this.level_id + 1]) {
+                new Game(this.level_id + 1)
+            } else {
+                admin.show = "winscreen"
+                admin.scroll = -100
+                new Game(0)
+            }
         }.bind(this), 5000)
     }
 }

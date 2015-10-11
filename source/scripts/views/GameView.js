@@ -2,6 +2,7 @@ var React = require("react")
 
 var EntityView = require("./EntityView")
 var ForEachView = require("./ForEachView")
+var ScoreView = require("./ScoreView")
 var GUIView = require("./GUIView")
 
 var Game = require("../models/Game")
@@ -69,12 +70,29 @@ var GameView = React.createClass({
                     </div>
                 )
             } else if(admin.show == "winscreen") {
-                <div style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundSize: "100%",
-                    backgroundImage: "url(" + Images.gui.winscreen + ")"
-                }}/>
+                return (
+                    <div style={{
+                        width: "100%",
+                        minHeight: "900%",
+                        backgroundSize: "100% auto",
+                        backgroundImage: "url(" + Images.gui.winscreen + ")",
+                        position: "absolute",
+                        top: Math.min(0, admin.scroll),
+                        backgroundRepeat: "no-repeat",
+                    }}/>
+                )
+            } else if(admin.show == "highscores") {
+                var scores = [
+                    {name: "asdf", score: "123"},
+                    {name: "asdf", score: "123"},
+                    {name: "asdf", score: "123"},
+                ]
+                return (
+                    <div style={{padding: "32em"}}>
+                        <span style={{fontWeight: "bold", fontSize: "128em"}}>HIGHSCORES!</span>
+                        <ForEachView data={scores} view={ScoreView}/>
+                    </div>
+                )
             } else {
                 return (
                     <div className="game-view">
@@ -95,29 +113,58 @@ var GameView = React.createClass({
         this.startGame()
     },
     startGame: function() {
-        new Game(parseInt(getURLQuery("level")) || 0)
         window.admin = {
-            show: "winscreen"
+            show: "titlescreen",
+            scroll: 100
+        }
+        if(getURLQuery("level") != "") {
+            new Game(parseInt(getURLQuery("level")))
+            admin.show = "winscreen"
+        }  else {
+            new Game(0)
         }
         Loop(function(delta) {
-            if(!!admin.show) {
-                if(admin.show == "titlescreen") {
-                    if(Keyboard.isDown("<enter>")) {
-                        admin.show = ""
-                    }
-                } else if(admin.show == "losescreen") {
-                    if(Keyboard.isDown("<enter>")
-                    || Keyboard.isDown("W")
-                    || Keyboard.isDown("S")
-                    || Keyboard.isDown("D")
-                    || Keyboard.isDown("A")
-                    || Keyboard.isDown("<space>")
-                    || Keyboard.isDown("<up>")
-                    || Keyboard.isDown("<down>")
-                    || Keyboard.isDown("<left>")
-                    || Keyboard.isDown("<right>")) {
-                        admin.show = ""
-                    }
+            if(admin.show == "titlescreen") {
+                if(Keyboard.isDown("<enter>")) {
+                    admin.show = ""
+                }
+            } else if(admin.show == "losescreen") {
+                if(Keyboard.isDown("<enter>")
+                || Keyboard.isDown("W")
+                || Keyboard.isDown("S")
+                || Keyboard.isDown("D")
+                || Keyboard.isDown("A")
+                || Keyboard.isDown("<space>")
+                || Keyboard.isDown("<up>")
+                || Keyboard.isDown("<down>")
+                || Keyboard.isDown("<left>")
+                || Keyboard.isDown("<right>")) {
+                    admin.show = ""
+                }
+            } else if(admin.show == "winscreen") {
+                if(Keyboard.isDown("<enter>")
+                || Keyboard.isDown("W")
+                || Keyboard.isDown("S")
+                || Keyboard.isDown("D")
+                || Keyboard.isDown("A")
+                || Keyboard.isDown("<space>")
+                || Keyboard.isDown("<up>")
+                || Keyboard.isDown("<down>")
+                || Keyboard.isDown("<left>")
+                || Keyboard.isDown("<right>")) {
+                    delta *= 10
+                }
+                admin.scroll -= 50 * delta
+                if(admin.scroll <= -1100) {
+                    admin.scroll = -1100
+                    admin.show = "highscores"
+                    window.setTimeout(function() {
+                        admin.name = prompt("Enter your name for the highscores", admin.name)
+                    }, 5000)
+                }
+            } else if(admin.show == "highscores") {
+                if(Keyboard.isDown("<enter>")) {
+                    admin.show = "titlescreen"
                 }
             } else {
                 if(Keyboard.isDown("<escape>")) {
