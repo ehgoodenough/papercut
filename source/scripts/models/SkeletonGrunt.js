@@ -54,7 +54,6 @@ SkeletonGrunt.prototype.update = function(delta) {
 
 SkeletonGrunt.prototype.attackPlayer = function () {
     window.game.ninja.getAttacked()
-    console.log("Ded.")
 }
 
 SkeletonGrunt.prototype.die = function() {
