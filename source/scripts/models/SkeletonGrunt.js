@@ -28,7 +28,7 @@ SkeletonGrunt.prototype.getStyle = function() {
 }
 
 SkeletonGrunt.prototype.update = function(delta) {
-    if(this.alive) {
+    if(this.alive && window.game.ninja.isDead === false) {
         if(delta > .9) {
             var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
             this.currentAction = {

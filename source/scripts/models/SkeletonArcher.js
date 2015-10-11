@@ -24,7 +24,7 @@ SkeletonArcher.prototype.getStyle = function() {
 }
 
 SkeletonArcher.prototype.update = function(delta) {
-    if (this.alive && window.game.ninja.alive){
+    if (this.alive && window.game.ninja.isDead === false){
         if(delta > .9) {
             var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
             if (distanceToNinja >= 160){
