@@ -14,13 +14,13 @@ var Levels = [
         },
         "monsters" : [
             // Left side, top to bottom:
-            {"tx" : 8, "ty" : 3, "id" : "grunt"},
-            {"tx" : 4, "ty" : 9, "id" : "grunt"},
-            {"tx" : 8, "ty" : 15, "id" : "grunt"},
+            {"tx" : 8, "ty" : 3, "id" : "archer"},
+            {"tx" : 4, "ty" : 9, "id" : "archer"},
+            {"tx" : 8, "ty" : 15, "id" : "archer"},
             // Right side, top to bottom:
-            {"tx" : 24, "ty" : 3, "id" : "grunt"},
-            {"tx" : 28, "ty" : 9, "id" : "grunt"},
-            {"tx" : 24, "ty" : 15, "id" : "grunt"},
+            {"tx" : 24, "ty" : 3, "id" : "archer"},
+            {"tx" : 28, "ty" : 9, "id" : "archer"},
+            {"tx" : 24, "ty" : 15, "id" : "archer"},
         ],
     },
 
