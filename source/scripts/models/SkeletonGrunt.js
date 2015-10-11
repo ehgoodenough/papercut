@@ -6,13 +6,15 @@ var hasCircularCollision = require("../utilities/hasCircularCollision")
 var SkeletonGrunt = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
-    
+
     this.x = protomonster.x || protomonster.tx * 32 || 0
     this.y = protomonster.y || protomonster.ty * 32 || 0
     this.alive = true
     this.size = 48
     this.speed = 1
     this.currentAction = null
+
+    this.damage = 0.5
 }
 
 SkeletonGrunt.prototype.getStyle = function() {
@@ -31,12 +33,11 @@ SkeletonGrunt.prototype.update = function(delta) {
             var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
             this.currentAction = {
                 moveTo: {
-                    x: window.game.ninja.x, 
+                    x: window.game.ninja.x,
                     y: window.game.ninja.y
                 }
             }
         }
-
         if(hasCircularCollision(this, window.game.ninja)){
             this.attackPlayer()
         }
@@ -59,11 +60,12 @@ SkeletonGrunt.prototype.update = function(delta) {
 }
 
 SkeletonGrunt.prototype.attackPlayer = function () {
-    window.game.ninja.getAttacked()
+    window.game.ninja.getAttacked(this)
 }
 
 SkeletonGrunt.prototype.die = function() {
     this.alive = false
+    window.game.checkWinCondition()
 }
 
 SkeletonGrunt.prototype.getAttacked = function(source) {
