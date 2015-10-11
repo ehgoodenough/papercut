@@ -1,9 +1,7 @@
 var ShortID = require("shortid")
 var getDistanceBetweenPoints = require("../utilities/getDistanceBetweenPoints")
-var hasCircularCollision = require("../utilities/hasCircularCollision")
 
-
-var SkeletonWarlord = function(protomonster) {
+var SkeletonArcher = function(protomonster) {
     this.id = ShortID.generate()
     window.game.monsters[this.id] = this
     
@@ -12,32 +10,30 @@ var SkeletonWarlord = function(protomonster) {
     this.alive = true
     this.size = 48
     this.speed = 1
-    this.health = 3
     this.currentAction = null
-    this.attackRange = 100
 }
 
-SkeletonWarlord.prototype.getStyle = function() {
+SkeletonArcher.prototype.getStyle = function() {
     return {
         width: this.size + "em",
         height: this.size + "em",
         left: this.x - (this.size / 2) + "em",
         top: this.y - (this.size / 2) + "em",
-        backgroundColor: "purple",
+        backgroundColor: "blue",
     }
 }
 
-SkeletonWarlord.prototype.update = function(delta) {
-    if (this.alive){
+SkeletonArcher.prototype.update = function(delta) {
+    if (this.alive && window.game.ninja.alive){
         if(delta > .9) {
             var distanceToNinja = getDistanceBetweenPoints({x: this.x, y: this.y}, {x: window.game.ninja.x, y: window.game.ninja.y})
-            if (distanceToNinja <= this.attackRange){
+            if (distanceToNinja >= 160){
                 this.currentAction = {}  //TODO: Attack!
             }
             else{
                 this.currentAction = { 
                     moveTo: {
-                        x: window.game.ninja.x, 
+                        x: window.game.ninja.x,
                         y: window.game.ninja.y
                     }
                 }
@@ -56,21 +52,12 @@ SkeletonWarlord.prototype.update = function(delta) {
     }
 }
 
-SkeletonWarlord.prototype.attackPlayer = function () {
-    window.game.ninja.getAttacked()
-}
-
-SkeletonWarlord.prototype.die = function() {
+SkeletonArcher.prototype.die = function() {
     this.alive = false
 }
 
-SkeletonWarlord.prototype.getAttacked = function(source) {
-    if (this.health > 1){
-        this.health--
-    }
-    else {
-        this.die()
-    }
+SkeletonArcher.prototype.getAttacked = function(source) {
+    this.die()
 }
 
-module.exports = SkeletonWarlord
+module.exports = SkeletonArcher
