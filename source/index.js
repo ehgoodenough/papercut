@@ -24,7 +24,7 @@ for(var index in Levels[lvl].monsters) {
     if (monster.id === "grunt"){
         new SkeletonGrunt(monster)
     }
-    if (monster.id === "warlord"){
+    else if (monster.id === "warlord"){
         new SkeletonWarlord(monster)
     }
     
