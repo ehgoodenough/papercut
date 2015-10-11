@@ -1,7 +1,7 @@
 var Ninja = require("./Ninja")
 var SkeletonGrunt = require("./SkeletonGrunt")
 var SkeletonWarlord = require("./SkeletonWarlord")
-var NinjaStar = require("./NinjaStar")
+var Projectile = require("./Projectile")
 
 var Levels = require("../data/Levels")
 
@@ -14,7 +14,7 @@ var Game = function(lvl) {
 
     this.ninja = {}
     this.monsters = {}
-    this.ninjastars = {}
+    this.projectiles = {}
 
     new Ninja()
     for(var index in Levels[lvl].monsters) {

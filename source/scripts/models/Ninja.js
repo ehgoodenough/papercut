@@ -2,7 +2,7 @@ var Mouse = require("../utilities/Mouse")
 var Keyboard = require("../utilities/Keyboard")
 var getAngleBetweenPoints = require("../utilities/getAngleBetweenPoints")
 
-var NinjaStar = require("./NinjaStar")
+var Projectile = require("./Projectile")
 
 var Images = require("../data/Images.js")
 
@@ -84,11 +84,11 @@ Ninja.prototype.update = function(fluxdelta, delta) {
             var event = Mouse.events.shift()
             if(event.type == "click") {
                 this.state.attacking = 3
-                var angle = getAngleBetweenPoints(this, event)
-                new NinjaStar({
-                    x: this.x,
-                    y: this.y,
-                    angle: angle
+                var direction = getAngleBetweenPoints(this, event)
+                new Projectile({
+                    "x": this.x,
+                    "y": this.y,
+                    "direction": direction
                 })
             }
         }

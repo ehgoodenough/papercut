@@ -1,5 +1,5 @@
 // Array of levels.
-[
+var Levels = [
     // Level 1 - Zombie Intro
     {
         "name" : "Zombies!",
@@ -23,7 +23,7 @@
             {"tx" : 24, "ty" : 15, "id" : "grunt"},
         ],
     },
-    
+
     // Level 2 - Skeledude Intro
     {
         "name" : "Meet the Skeleton",
@@ -171,3 +171,5 @@
         ]
     },
 ]
+
+module.exports = Levels
