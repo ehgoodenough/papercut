@@ -23,6 +23,8 @@ var SkeletonArcher = function(protomonster) {
     this.action = {}
     this.direction = +1
 
+    this.opacity = 1.5
+
     this.deltas = []
 }
 
@@ -38,6 +40,7 @@ SkeletonArcher.prototype.getStyle = function() {
         image = Images.skeleton.archer.aiming
     }
     return {
+        opacity: this.opacity.toFixed(2),
         width: this.rendersize + "em",
         height: this.rendersize + "em",
         left: this.x - (this.rendersize / 2) + "em",
@@ -135,12 +138,21 @@ SkeletonArcher.prototype.update = function(delta) {
                 }
             }
         }
+    } else {
+       this.opacity -= 0.01 * delta
+       if(this.opacity <= 0) {
+           this.remove()
+       }
     }
 }
 
 SkeletonArcher.prototype.getAttacked = function(source) {
     window.game.checkWinCondition()
     this.alive = false
+}
+
+SkeletonArcher.prototype.remove = function() {
+    delete window.game.monsters[this.id]
 }
 
 module.exports = SkeletonArcher

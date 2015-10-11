@@ -3,7 +3,7 @@ var Music = require("../data/Music")
 var MusicManager = {
     play: function(music_name) {
         if(!!this.music) {
-            this.music.stop()
+            this.music.pause()
         }
         this.music = Music[music_name]
         this.music.loop = true
