@@ -50,7 +50,7 @@
         "music" : null,
         "ninja" : {
             "tx" : 16,
-            "ty" : 9,
+            "ty" : 14,
         },
         "arena" : {
             "tx" : 32,
@@ -146,7 +146,7 @@
             "ty" : 18,
         },
         "monsters" : [
-            {"tx" : 2, "ty" : 1, "id" : "grunt"},
+            
         ]
     },
 ]
