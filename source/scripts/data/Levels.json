@@ -61,13 +61,13 @@
             {"tx" : 12, "ty" : 3, "id" : "grunt"},
             {"tx" : 16, "ty" : 3, "id" : "grunt"},
             {"tx" : 20, "ty" : 3, "id" : "grunt"},
-            {"tx" : 8, "ty" : 5, "id" : "grunt"},
+            {"tx" : 10, "ty" : 5, "id" : "grunt"},
             {"tx" : 16, "ty" : 5, "id" : "grunt"},
-            {"tx" : 24, "ty" : 5, "id" : "grunt"},
+            {"tx" : 22, "ty" : 5, "id" : "grunt"},
             // Skeleton backup
-            {"tx" : 4, "ty" : 1, "id" : "warlord"},
+            {"tx" : 8, "ty" : 1, "id" : "warlord"},
             {"tx" : 16, "ty" : 1, "id" : "warlord"},
-            {"tx" : 26, "ty" : 1, "id" : "warlord"},
+            {"tx" : 24, "ty" : 1, "id" : "warlord"},
         ],
     },
 
@@ -98,5 +98,55 @@
             // Enemy to prevent the player from simply kiting backward
             {"tx" : 16, "ty" : 17, "id" : "warlord"},
         ],
+    },
+
+    // Level 5 - Screened Archers
+    {
+        "name" : "Combined Arms",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 20,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
+        "monsters" : [
+            // Shieldwall
+            {"tx" : 13, "ty" : 5, "id" : "warlord"},
+            {"tx" : 15, "ty" : 5, "id" : "warlord"},
+            {"tx" : 17, "ty" : 5, "id" : "warlord"},
+            {"tx" : 19, "ty" : 5, "id" : "warlord"},
+
+            // Archers behind the lines
+            {"tx" : 13, "ty" : 2, "id" : "archer"},
+            {"tx" : 19, "ty" : 2, "id" : "archer"},
+
+            // Flank zombies to eat time
+            {"tx" : 2, "ty" : 1, "id" : "grunt"},
+            {"tx" : 3, "ty" : 2, "id" : "grunt"},
+            {"tx" : 4, "ty" : 1, "id" : "grunt"},
+            {"tx" : 30, "ty" : 1, "id" : "grunt"},
+            {"tx" : 29, "ty" : 2, "id" : "grunt"},
+            {"tx" : 28, "ty" : 1, "id" : "grunt"},
+        ],
+    },
+
+    //
+    {
+        "name" : "?",
+        "music" : null,
+        "ninja" : {
+            "tx" : 16,
+            "ty" : 9,
+        },
+        "arena" : {
+            "tx" : 32,
+            "ty" : 18,
+        },
+        "monsters" : [
+            {"tx" : 2, "ty" : 1, "id" : "grunt"},
+        ]
     },
 ]
