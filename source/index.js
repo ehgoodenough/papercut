@@ -4,12 +4,7 @@ var Keyboard = require("./scripts/utilities/Keyboard")
 var getURLQuery = require("./scripts/utilities/getURLQuery")
 
 var Game = require("./scripts/models/Game")
-var Ninja = require("./scripts/models/Ninja")
-var SkeletonGrunt = require("./scripts/models/SkeletonGrunt")
-var SkeletonWarlord = require("./scripts/models/SkeletonWarlord")
-var NinjaStar = require("./scripts/models/NinjaStar")
 
-var Levels = require("./scripts/data/Levels")
 var Images = require("./scripts/data/Images")
 var Music = require("./scripts/data/Music")
 
@@ -20,19 +15,8 @@ Music.one.play()
 window.WIDTH = 1024
 window.HEIGHT = 576
 
-new Game()
-new Ninja()
 var lvl = getURLQuery("level") || 0
-for(var index in Levels[lvl].monsters) {
-    var monster = Levels[lvl].monsters[index]
-    if (monster.id === "grunt"){
-        new SkeletonGrunt(monster)
-    }
-    else if (monster.id === "warlord"){
-        new SkeletonWarlord(monster)
-    }
-    
-}
+new Game(lvl)
 
 window.view = require("./scripts/views/GameView")
 
@@ -43,7 +27,7 @@ Loop(function(delta) {
     var p = 2 //period, the time it takes to bounce between amplitudes.
     var fluxdelta = ((a - 0.05) / 2) * Math.sin(2 * Math.PI * game.time * (1 / p)) + ((a - 0.05) / 2) + 0.05
 
-    game.ninja.update(fluxdelta)
+    game.ninja.update(fluxdelta, delta)
     for(var id in game.monsters) {
         var monster = game.monsters[id]
         monster.update(fluxdelta)
