@@ -13,6 +13,7 @@ module.exports = [
     {
         "name" : "Welcome Party",
         "music" : "crazy",
+        "background" : 0,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -38,6 +39,7 @@ module.exports = [
     {
         "name" : "Meet the Warlord",
         "music" : "crazy",
+        "background" : 0,
         "ninja" : {
             "tx" : 16,
             "ty" : 14,
@@ -59,6 +61,7 @@ module.exports = [
     {
         "name" : "Phalanx",
         "music" : "crazy",
+        "background" : 0,
         "ninja" : {
             "tx" : 16,
             "ty" : 14,
@@ -87,7 +90,8 @@ module.exports = [
     // Teach the player to rush and eliminate unscreened archers.
     {
         "name" : "Crossfire",
-        "music" : "chaos",
+        "music" : "crazy",
+        "background" : 0,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -118,6 +122,7 @@ module.exports = [
     {
         "name" : "Combined Arms",
         "music" : "chaos",
+        "background" : 1,
         "ninja" : {
             "tx" : 16,
             "ty" : 20,
@@ -154,6 +159,7 @@ module.exports = [
     {
         "name" : "Pincer",
         "music" : "chaos",
+        "background" : 1,
         "ninja" : {
             "tx" : 16,
             "ty" : 20,
@@ -189,6 +195,7 @@ module.exports = [
     {
         "name" : "Ambush!",
         "music" : "chaos",
+        "background" : 1,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -230,6 +237,7 @@ module.exports = [
     {
         "name" : "Dodgeball",
         "music" : "chaos",
+        "background" : 1,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -266,6 +274,7 @@ module.exports = [
     {
         "name" : "Grand Melee",
         "music" : "final",
+        "background" : 2,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -309,6 +318,7 @@ module.exports = [
     {
         "name" : "Last Stand",
         "music" : "final",
+        "background" : 2,
         "ninja" : {
             "tx" : 16,
             "ty" : 9,
@@ -352,6 +362,15 @@ module.exports = [
             {"tx" : 15, "ty" : 16, "id" : "grunt"},
             {"tx" : 16, "ty" : 15, "id" : "grunt"},
             {"tx" : 17, "ty" : 16, "id" : "grunt"},
+
+            // Backup wedges
+            {"tx" : 5, "ty" : 1, "id" : "grunt"},
+            {"tx" : 6, "ty" : 2, "id" : "grunt"},
+            {"tx" : 7, "ty" : 1, "id" : "grunt"},
+
+            {"tx" : 27, "ty" : 17, "id" : "grunt"},
+            {"tx" : 26, "ty" : 16, "id" : "grunt"},
+            {"tx" : 25, "ty" : 17, "id" : "grunt"},
 
         ],
     },
