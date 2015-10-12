@@ -3,12 +3,19 @@ var Projectile = require("./Projectile")
 var SkeletonGrunt = require("./SkeletonGrunt")
 var SkeletonArcher = require("./SkeletonArcher")
 var SkeletonWarlord = require("./SkeletonWarlord")
+var PlayFabManager = require("../utilities/PlayFabManager")
 
 var Levels = require("../data/Levels")
 var Images = require("../data/Images")
 var MusicManager = require("../utilities/MusicManager")
 
 var Game = function(level_id) {
+
+    var playFab = new PlayFabManager()
+    playFab.sendHighScoreAndRetrieveHighScoreList("asasdasd", 9001, function(highscores) {
+        console.log(highscores)
+    })
+
     this.level_id = level_id
     var protolevel = Levels[level_id]
 
