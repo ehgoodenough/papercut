@@ -56,7 +56,7 @@ SkeletonArcher.prototype.getStyle = function() {
 
 SkeletonArcher.prototype.update = function(delta) {
     var ninja = window.game.ninja
-    if(this.alive && ninja.isDead === false) {
+    if(this.alive) {
         if(!ninja.isDead && ninja.hasMoved == true) {
             // if and only if
             // this is the "beat"
