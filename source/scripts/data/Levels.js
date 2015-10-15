@@ -49,17 +49,20 @@ module.exports = [
             "ty" : 18,
         },
         "monsters" : [
-            // Top side, left to right
+            {"tx" : 6, "ty" : 4, "id" : "grunt"},
+            {"tx" : 7, "ty" : 5, "id" : "grunt"},
             {"tx" : 8, "ty" : 4, "id" : "grunt"},
             {"tx" : 16, "ty" : 1, "id" : "warlord"},
             {"tx" : 24, "ty" : 4, "id" : "grunt"},
+            {"tx" : 25, "ty" : 5, "id" : "grunt"},
+            {"tx" : 26, "ty" : 4, "id" : "grunt"},
         ],
     },
 
     // Level 3 - Phalanx
     // Dealing with multiple, supported shield dudes.
     {
-        "name" : "Phalanx",
+        "name" : "Closing In",
         "music" : "crazy",
         "background" : 0,
         "ninja" : {
@@ -72,17 +75,17 @@ module.exports = [
         },
         "monsters" : [
             // Grunt wedges to screen and act as murderable chaff
-            {"tx" : 12, "ty" : 3, "id" : "grunt"},
-            {"tx" : 13, "ty" : 5, "id" : "grunt"},
-            {"tx" : 14, "ty" : 3, "id" : "grunt"},
+            {"tx" : 12, "ty" : 13, "id" : "grunt"},
+            {"tx" : 13, "ty" : 12, "id" : "grunt"},
+            {"tx" : 14, "ty" : 13, "id" : "grunt"},
 
-            {"tx" : 18, "ty" : 3, "id" : "grunt"},
-            {"tx" : 19, "ty" : 5, "id" : "grunt"},
-            {"tx" : 20, "ty" : 3, "id" : "grunt"},
+            {"tx" : 18, "ty" : 13, "id" : "grunt"},
+            {"tx" : 19, "ty" : 12, "id" : "grunt"},
+            {"tx" : 20, "ty" : 13, "id" : "grunt"},
             // Skeleton backup
-            {"tx" : 8, "ty" : 1, "id" : "warlord"},
-            {"tx" : 16, "ty" : 1, "id" : "warlord"},
-            {"tx" : 24, "ty" : 1, "id" : "warlord"},
+            {"tx" : 8, "ty" : 4, "id" : "warlord"},
+            {"tx" : 16, "ty" : 4, "id" : "warlord"},
+            {"tx" : 24, "ty" : 4, "id" : "warlord"},
         ],
     },
 
