@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "datauri": "^0.8.0",
+    "playfab-sdk": "^0.2.101015",
     "raf": "^3.1.0",
     "react": "^0.13.3",
     "shortid": "^2.2.2",
